@@ -27,6 +27,7 @@ const RootLayout = async ({ children, modal }: RootLayoutProps) => {
 
   return (
     <html dir={direction} lang={lang?.value || DEFAULT_LANG} suppressHydrationWarning>
+      <meta content="no-referrer" name="referrer"></meta>
       <body>
         <GlobalProvider>
           <AuthProvider>
