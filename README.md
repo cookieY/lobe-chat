@@ -26,6 +26,12 @@ One-click **FREE** deployment of your private OpenAI ChatGPT/Claude/Gemini/Groq/
 DEFAULT_FILES_CONFIG="embedding_model=zhipu/embedding-3"
 ```
 
+DockerImage
+
+```
+yeelabs/lobe-chat-databases:latest
+```
+
 
 Copyright © 2024 [LobeHub][profile-link]. <br />
 This project is [Apache 2.0](./LICENSE) licensed.
