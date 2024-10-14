@@ -96,6 +96,10 @@ export class ChunkingLoader {
       return 'markdown';
     }
 
+    if (filename.endsWith('csv')) {
+      return 'csv';
+    }
+
     const ext = filename.split('.').pop();
 
     if (ext && SupportedTextSplitterLanguages.includes(ext as SupportedTextSplitterLanguage)) {
