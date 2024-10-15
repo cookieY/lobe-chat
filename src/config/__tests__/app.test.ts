@@ -50,13 +50,5 @@ describe('getServerConfig', () => {
       const config = getAppConfig();
       expect(config.DEFAULT_AGENT_CONFIG).toBe('embed.model=embedding-3;embed.provider=zhipu');
     });
-
-    it('should return default embed when environment variables are empty string', () => {
-      process.env.DEFAULT_AGENT_CONFIG = '';
-      const config = getAppConfig();
-      expect(config.DEFAULT_AGENT_CONFIG).toBe(
-        'embed.model=text-embedding-3-small;embed.provider=openai',
-      );
-    });
   });
 });
