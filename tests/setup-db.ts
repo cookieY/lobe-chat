@@ -1,7 +1,9 @@
-// // import env
-// import { Crypto } from '@peculiar/webcrypto';
-// import * as dotenv from 'dotenv';
+// import env
+import { Crypto } from '@peculiar/webcrypto';
+import * as dotenv from 'dotenv';
 
-// dotenv.config();
+dotenv.config();
 
-// global.crypto = new Crypto();
+if (typeof global.crypto === 'undefined') {
+  global.crypto = new Crypto();
+}
