@@ -69,7 +69,7 @@ export class LobeBedrockAI implements LobeRuntimeAI {
           index: index,
           input: inputText,
           model: payload.model,
-        } as EmbeddingsPayload,
+        },
         options,
       ),
     );

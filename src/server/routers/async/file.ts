@@ -4,7 +4,6 @@ import pMap from 'p-map';
 import { z } from 'zod';
 
 import { fileEnv } from '@/config/file';
-import { DEFAULT_EMBEDDING_MODEL } from '@/const/settings';
 import { ASYNC_TASK_TIMEOUT, AsyncTaskModel } from '@/database/server/models/asyncTask';
 import { ChunkModel } from '@/database/server/models/chunk';
 import { EmbeddingModel } from '@/database/server/models/embedding';
@@ -54,13 +53,11 @@ export const fileRouter = router({
 
       const asyncTask = await ctx.asyncTaskModel.findById(input.taskId);
 
-      const model =
-        getServerGlobalConfig().defaultEmbed?.embedding_model?.model ??
-        DEFAULT_EMBEDDING_MODEL.model;
-      const provider =
-        getServerGlobalConfig().defaultEmbed?.embedding_model?.provider ??
-        DEFAULT_EMBEDDING_MODEL.provider;
+      const model = getServerGlobalConfig().defaultEmbed!!.embedding_model!!.model as string;
+      const provider = getServerGlobalConfig().defaultEmbed!!.embedding_model!!.provider as string;
 
+      console.log('embeddingProvider:', provider);
+      console.log('embeddingModel:', model);
       if (!asyncTask) throw new TRPCError({ code: 'BAD_REQUEST', message: 'Async Task not found' });
 
       try {

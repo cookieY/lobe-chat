@@ -4,6 +4,7 @@ import * as dotenv from 'dotenv';
 
 dotenv.config();
 
-if (typeof global.crypto === 'undefined') {
-  global.crypto = new Crypto();
-}
+Object.defineProperty(global, 'crypto', {
+  configurable: true,
+  value: new Crypto(),
+});
