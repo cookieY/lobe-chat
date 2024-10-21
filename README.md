@@ -69,33 +69,35 @@ One-click **FREE** deployment of your private OpenAI ChatGPT/Claude/Gemini/Groq/
 
 #### TOC
 
-- [👋🏻 Getting Started & Join Our Community](#-getting-started--join-our-community)
-- [✨ Features](#-features)
-  - [`1` \[File Upload/Knowledge Base\]\[docs-feat-knowledgebase\]](#1-file-uploadknowledge-basedocs-feat-knowledgebase)
-  - [`2` \[Multi-Model Service Provider Support\]\[docs-feat-provider\]](#2-multi-model-service-provider-supportdocs-feat-provider)
-  - [`3` \[Local Large Language Model (LLM) Support\]\[docs-feat-local\]](#3-local-large-language-model-llm-supportdocs-feat-local)
-  - [`4` \[Model Visual Recognition\]\[docs-feat-vision\]](#4-model-visual-recognitiondocs-feat-vision)
-  - [`5` \[TTS & STT Voice Conversation\]\[docs-feat-tts\]](#5-tts--stt-voice-conversationdocs-feat-tts)
-  - [`6` \[Text to Image Generation\]\[docs-feat-t2i\]](#6-text-to-image-generationdocs-feat-t2i)
-  - [`7` \[Plugin System (Function Calling)\]\[docs-feat-plugin\]](#7-plugin-system-function-callingdocs-feat-plugin)
-  - [`8` \[Agent Market (GPTs)\]\[docs-feat-agent\]](#8-agent-market-gptsdocs-feat-agent)
-  - [`9` \[Support Local / Remote Database\]\[docs-feat-database\]](#9-support-local--remote-databasedocs-feat-database)
-  - [`10` \[Support Multi-User Management\]\[docs-feat-auth\]](#10-support-multi-user-managementdocs-feat-auth)
-  - [`11` \[Progressive Web App (PWA)\]\[docs-feat-pwa\]](#11-progressive-web-app-pwadocs-feat-pwa)
-  - [`12` \[Mobile Device Adaptation\]\[docs-feat-mobile\]](#12-mobile-device-adaptationdocs-feat-mobile)
-  - [`13` \[Custom Themes\]\[docs-feat-theme\]](#13-custom-themesdocs-feat-theme)
-  - [`*` What's more](#-whats-more)
-- [⚡️ Performance](#️-performance)
-- [🛳 Self Hosting](#-self-hosting)
-  - [`A` Deploying with Vercel, Zeabur or Sealos](#a-deploying-with-vercel-zeabur-or-sealos)
-  - [`B` Deploying with Docker](#b-deploying-with-docker)
-  - [Environment Variable](#environment-variable)
-- [📦 Ecosystem](#-ecosystem)
-- [🧩 Plugins](#-plugins)
-- [⌨️ Local Development](#️-local-development)
-- [🤝 Contributing](#-contributing)
-- [❤️ Sponsor](#️-sponsor)
-- [🔗 More Products](#-more-products)
+- - [👋🏻 Getting Started & Join Our Community](#-getting-started--join-our-community)
+  - [✨ Features](#-features)
+    - [`1` \[File Upload/Knowledge Base\]\[docs-feat-knowledgebase\]](#1-file-uploadknowledge-basedocs-feat-knowledgebase)
+    - [`2` \[Multi-Model Service Provider Support\]\[docs-feat-provider\]](#2-multi-model-service-provider-supportdocs-feat-provider)
+    - [`3` \[Local Large Language Model (LLM) Support\]\[docs-feat-local\]](#3-local-large-language-model-llm-supportdocs-feat-local)
+    - [`4` \[Model Visual Recognition\]\[docs-feat-vision\]](#4-model-visual-recognitiondocs-feat-vision)
+    - [`5` \[TTS & STT Voice Conversation\]\[docs-feat-tts\]](#5-tts--stt-voice-conversationdocs-feat-tts)
+    - [`6` \[Text to Image Generation\]\[docs-feat-t2i\]](#6-text-to-image-generationdocs-feat-t2i)
+    - [`7` \[Plugin System (Function Calling)\]\[docs-feat-plugin\]](#7-plugin-system-function-callingdocs-feat-plugin)
+    - [`8` \[Agent Market (GPTs)\]\[docs-feat-agent\]](#8-agent-market-gptsdocs-feat-agent)
+    - [`9` \[Support Local / Remote Database\]\[docs-feat-database\]](#9-support-local--remote-databasedocs-feat-database)
+    - [`10` \[Support Multi-User Management\]\[docs-feat-auth\]](#10-support-multi-user-managementdocs-feat-auth)
+    - [`11` \[Progressive Web App (PWA)\]\[docs-feat-pwa\]](#11-progressive-web-app-pwadocs-feat-pwa)
+    - [`12` \[Mobile Device Adaptation\]\[docs-feat-mobile\]](#12-mobile-device-adaptationdocs-feat-mobile)
+    - [`13` \[Custom Themes\]\[docs-feat-theme\]](#13-custom-themesdocs-feat-theme)
+    - [`*` What's more](#-whats-more)
+  - [⚡️ Performance](#️-performance)
+  - [🛳 Self Hosting](#-self-hosting)
+- [<<<<<<< HEAD
+  LobeChat provides Self-Hosted Version with Vercel and \[Docker Image\]\[docker-release-link\]. This allows you to deploy your own chatbot within a few minutes without any prior knowledge.](#-headlobechat-provides-self-hosted-version-with-vercel-and-docker-imagedocker-release-link-this-allows-you-to-deploy-your-own-chatbot-within-a-few-minutes-without-any-prior-knowledge)
+  - - [`A` Deploying with Vercel, Zeabur , Sealos or Alibaba Cloud](#a-deploying-with-vercel-zeabur--sealos-or-alibaba-cloud)
+    - [`B` Deploying with Docker](#b-deploying-with-docker)
+    - [Environment Variable](#environment-variable)
+  - [📦 Ecosystem](#-ecosystem)
+  - [🧩 Plugins](#-plugins)
+  - [⌨️ Local Development](#️-local-development)
+  - [🤝 Contributing](#-contributing)
+  - [❤️ Sponsor](#️-sponsor)
+  - [🔗 More Products](#-more-products)
 
 ####
 
@@ -458,15 +460,21 @@ Beside these features, LobeChat also have much better basic technique undergroun
 
 ## 🛳 Self Hosting
 
+<<<<<<< HEAD
 LobeChat provides Self-Hosted Version with Vercel and \[Docker Image]\[docker-release-link]. This allows you to deploy your own chatbot within a few minutes without any prior knowledge.
+=========================================================================================================================================================================================
+
+LobeChat provides Self-Hosted Version with Vercel, Alibaba Cloud, and [Docker Image][docker-release-link]. This allows you to deploy your own chatbot within a few minutes without any prior knowledge.
+
+> > > > > > > fc1d0a6869fa773c15678d31387dfe577d3165ff
 
 > \[!TIP]
 >
 > Learn more about \[📘 Build your own LobeChat]\[docs-self-hosting] by checking it out.
 
-### `A` Deploying with Vercel, Zeabur or Sealos
+### `A` Deploying with Vercel, Zeabur , Sealos or Alibaba Cloud
 
-If you want to deploy this service yourself on either Vercel or Zeabur, you can follow these steps:
+"If you want to deploy this service yourself on Vercel, Zeabur or Alibaba Cloud, you can follow these steps:
 
 - Prepare your [OpenAI API Key](https://platform.openai.com/account/api-keys).
 - Click the button below to start deployment: Log in directly with your GitHub account, and remember to fill in the `OPENAI_API_KEY`(required) and `ACCESS_CODE` (recommended) on the environment variable section.
@@ -475,9 +483,9 @@ If you want to deploy this service yourself on either Vercel or Zeabur, you can 
 
 <div align="center">
 
-|             Deploy with Vercel              |                       Deploy with Zeabur                        |                       Deploy with Sealos                        |                         Deploy with RepoCloud                         |
-| :-----------------------------------------: | :-------------------------------------------------------------: | :-------------------------------------------------------------: | :-------------------------------------------------------------------: |
-| \[!\[]\[deploy-button-image]]\[deploy-link] | \[!\[]\[deploy-on-zeabur-button-image]]\[deploy-on-zeabur-link] | \[!\[]\[deploy-on-sealos-button-image]]\[deploy-on-sealos-link] | \[!\[]\[deploy-on-repocloud-button-image]]\[deploy-on-repocloud-link] |
+|           Deploy with Vercel            |                     Deploy with Zeabur                      |                     Deploy with Sealos                      |                       Deploy with RepoCloud                       |                         Deploy with Alibaba Cloud                         |
+| :-------------------------------------: | :---------------------------------------------------------: | :---------------------------------------------------------: | :---------------------------------------------------------------: | :-----------------------------------------------------------------------: |
+| [![][deploy-button-image]][deploy-link] | [![][deploy-on-zeabur-button-image]][deploy-on-zeabur-link] | [![][deploy-on-sealos-button-image]][deploy-on-sealos-link] | [![][deploy-on-repocloud-button-image]][deploy-on-repocloud-link] | [![][deploy-on-alibaba-cloud-button-image]][deploy-on-alibaba-cloud-link] |
 
 </div>
 
@@ -703,6 +711,17 @@ This project is [Apache 2.0](./LICENSE) licensed.
 
 <!-- LINK GROUP -->
 
+[deploy-button-image]: https://vercel.com/button
+[deploy-link]: https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Flobehub%2Flobe-chat&env=OPENAI_API_KEY,ACCESS_CODE&envDescription=Find%20your%20OpenAI%20API%20Key%20by%20click%20the%20right%20Learn%20More%20button.%20%7C%20Access%20Code%20can%20protect%20your%20website&envLink=https%3A%2F%2Fplatform.openai.com%2Faccount%2Fapi-keys&project-name=lobe-chat&repository-name=lobe-chat
+[deploy-on-alibaba-cloud-button-image]: https://service-info-public.oss-cn-hangzhou.aliyuncs.com/computenest-en.svg
+[deploy-on-alibaba-cloud-link]: https://computenest.console.aliyun.com/service/instance/create/default?type=user&ServiceName=LobeChat%E7%A4%BE%E5%8C%BA%E7%89%88
+[deploy-on-repocloud-button-image]: https://d16t0pc4846x52.cloudfront.net/deploylobe.svg
+[deploy-on-repocloud-link]: https://repocloud.io/details/?app_id=248
+[deploy-on-sealos-button-image]: https://raw.githubusercontent.com/labring-actions/templates/main/Deploy-on-Sealos.svg
+[deploy-on-sealos-link]: https://cloud.sealos.io/?openapp=system-template%3FtemplateName%3Dlobe-chat
+[deploy-on-zeabur-button-image]: https://zeabur.com/button.svg
+[deploy-on-zeabur-link]: https://zeabur.com/templates/VZGGTI
+[docker-release-link]: https://hub.docker.com/r/lobehub/lobe-chat
 [docs-functionc-call]: https://lobehub.com/blog/openai-function-call
 [image-banner]: https://github.com/lobehub/lobe-chat/assets/28616219/9f155dff-4737-429f-9cad-a70a1a860c5f
 [profile-link]: https://github.com/lobehub

@@ -43,21 +43,7 @@ export class ChunkService {
     await this.fileModel.update(fileId, { embeddingTaskId: asyncTaskId });
 
     const asyncCaller = await createAsyncServerClient(this.userId, payload);
-
-    // trigger embedding task asynchronously
-    try {
-      await asyncCaller.file.embeddingChunks.mutate({ fileId, taskId: asyncTaskId });
-    } catch (e) {
-      console.error('[embeddingFileChunks] error:', e);
-
-      await this.asyncTaskModel.update(asyncTaskId, {
-        error: new AsyncTaskError(
-          AsyncTaskErrorType.TaskTriggerError,
-          'trigger chunk embedding async task error. Please check your app is public available or check your proxy settings is set correctly.',
-        ),
-        status: AsyncTaskStatus.Error,
-      });
-    }
+    asyncCaller.file.embeddingChunks.mutate({ fileId, taskId: asyncTaskId });
 
     return asyncTaskId;
   }

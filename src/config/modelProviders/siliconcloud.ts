@@ -67,7 +67,8 @@ const SiliconCloud: ModelProviderCard = {
       tokens: 131_072,
     },
     {
-      description: 'Qwen2-VL 是 Qwen-VL 模型的最新迭代版本，在视觉理解基准测试中达到了最先进的性能。',
+      description:
+        'Qwen2-VL 是 Qwen-VL 模型的最新迭代版本，在视觉理解基准测试中达到了最先进的性能。',
       displayName: 'Qwen2 VL 7B',
       enabled: true,
       id: 'Pro/Qwen/Qwen2-VL-7B-Instruct',
@@ -80,7 +81,8 @@ const SiliconCloud: ModelProviderCard = {
       vision: true,
     },
     {
-      description: 'Qwen2-VL 是 Qwen-VL 模型的最新迭代版本，在视觉理解基准测试中达到了最先进的性能。',
+      description:
+        'Qwen2-VL 是 Qwen-VL 模型的最新迭代版本，在视觉理解基准测试中达到了最先进的性能。',
       displayName: 'Qwen2 VL 72B',
       enabled: true,
       id: 'Qwen/Qwen2-VL-72B-Instruct',
@@ -95,7 +97,6 @@ const SiliconCloud: ModelProviderCard = {
     {
       description: 'Qwen2.5-Math 专注于数学领域的问题求解，为高难度题提供专业解答。',
       displayName: 'Qwen2.5 Math 72B',
-      enabled: true,
       id: 'Qwen/Qwen2.5-Math-72B-Instruct',
       pricing: {
         currency: 'CNY',
@@ -107,7 +108,6 @@ const SiliconCloud: ModelProviderCard = {
     {
       description: 'Qwen2.5-Coder 专注于代码编写。',
       displayName: 'Qwen2.5 Coder 7B',
-      enabled: true,
       id: 'Qwen/Qwen2.5-Coder-7B-Instruct',
       pricing: {
         currency: 'CNY',
@@ -141,7 +141,8 @@ const SiliconCloud: ModelProviderCard = {
       tokens: 32_768,
     },
     {
-      description: 'InternVL2在各种视觉语言任务上展现出了卓越的性能，包括文档和图表理解、场景文本理解、OCR、科学和数学问题解决等。',
+      description:
+        'InternVL2在各种视觉语言任务上展现出了卓越的性能，包括文档和图表理解、场景文本理解、OCR、科学和数学问题解决等。',
       displayName: 'InternVL2 8B',
       id: 'Pro/OpenGVLab/InternVL2-8B',
       pricing: {
@@ -153,7 +154,8 @@ const SiliconCloud: ModelProviderCard = {
       vision: true,
     },
     {
-      description: 'InternVL2在各种视觉语言任务上展现出了卓越的性能，包括文档和图表理解、场景文本理解、OCR、科学和数学问题解决等。',
+      description:
+        'InternVL2在各种视觉语言任务上展现出了卓越的性能，包括文档和图表理解、场景文本理解、OCR、科学和数学问题解决等。',
       displayName: 'InternVL2 26B',
       id: 'OpenGVLab/InternVL2-26B',
       pricing: {
@@ -165,7 +167,8 @@ const SiliconCloud: ModelProviderCard = {
       vision: true,
     },
     {
-      description: 'InternVL2在各种视觉语言任务上展现出了卓越的性能，包括文档和图表理解、场景文本理解、OCR、科学和数学问题解决等。',
+      description:
+        'InternVL2在各种视觉语言任务上展现出了卓越的性能，包括文档和图表理解、场景文本理解、OCR、科学和数学问题解决等。',
       displayName: 'InternVL2 Llama3 76B',
       id: 'OpenGVLab/InternVL2-Llama3-76B',
       pricing: {
@@ -267,6 +270,19 @@ const SiliconCloud: ModelProviderCard = {
         currency: 'CNY',
         input: 21,
         output: 21,
+      },
+      tokens: 32_768,
+    },
+    {
+      description:
+        'Llama 3.1 Nemotron 70B 是由 NVIDIA 定制的大型语言模型，旨在提高 LLM 生成的响应对用户查询的帮助程度。',
+      displayName: 'Llama 3.1 Nemotron 70B',
+      enabled: true,
+      id: 'nvidia/Llama-3.1-Nemotron-70B-Instruct',
+      pricing: {
+        currency: 'CNY',
+        input: 4.13,
+        output: 4.13,
       },
       tokens: 32_768,
     },

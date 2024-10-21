@@ -136,7 +136,6 @@ export const fileRouter = router({
 
           return { success: true };
         };
-
         // Race between the chunking process and the timeout
         return await Promise.race([embeddingPromise(), timeoutPromise]);
       } catch (e) {
@@ -246,7 +245,7 @@ export const fileRouter = router({
 
           // if enable auto embedding, trigger the embedding task
           if (fileEnv.CHUNKS_AUTO_EMBEDDING) {
-            await chunkService.asyncEmbeddingFileChunks(input.fileId, ctx.jwtPayload);
+            chunkService.asyncEmbeddingFileChunks(input.fileId, ctx.jwtPayload);
           }
 
           return { success: true };
