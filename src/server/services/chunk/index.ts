@@ -43,7 +43,21 @@ export class ChunkService {
     await this.fileModel.update(fileId, { embeddingTaskId: asyncTaskId });
 
     const asyncCaller = await createAsyncServerClient(this.userId, payload);
-    asyncCaller.file.embeddingChunks.mutate({ fileId, taskId: asyncTaskId });
+
+    // trigger embedding task asynchronously
+    try {
+      await asyncCaller.file.embeddingChunks.mutate({ fileId, taskId: asyncTaskId });
+    } catch (e) {
+      console.error('[embeddingFileChunks] error:', e);
+
+      await this.asyncTaskModel.update(asyncTaskId, {
+        error: new AsyncTaskError(
+          AsyncTaskErrorType.TaskTriggerError,
+          'trigger chunk embedding async task error. Please make sure the APP_URL is available from your server. You can check the proxy config or WAF blocking',
+        ),
+        status: AsyncTaskStatus.Error,
+      });
+    }
 
     return asyncTaskId;
   }
@@ -78,7 +92,7 @@ export class ChunkService {
         await this.asyncTaskModel.update(asyncTaskId, {
           error: new AsyncTaskError(
             AsyncTaskErrorType.TaskTriggerError,
-            'trigger file parse async task error. Please check your app is public available or check your proxy settings is set correctly.',
+            'trigger chunk embedding async task error. Please make sure the APP_URL is available from your server. You can check the proxy config or WAF blocking',
           ),
           status: AsyncTaskStatus.Error,
         });
