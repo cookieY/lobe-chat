@@ -10,7 +10,7 @@ import { AgentRuntimeErrorType } from '../error';
 import {
   ChatCompetitionOptions,
   ChatStreamPayload,
-  EmbeddingItem,
+  Embeddings,
   EmbeddingsOptions,
   EmbeddingsPayload,
   ModelProvider,
@@ -57,10 +57,7 @@ export class LobeBedrockAI implements LobeRuntimeAI {
     return this.invokeClaudeModel(payload, options);
   }
 
-  async embeddings(
-    payload: EmbeddingsPayload,
-    options?: EmbeddingsOptions,
-  ): Promise<EmbeddingItem[]> {
+  async embeddings(payload: EmbeddingsPayload, options?: EmbeddingsOptions): Promise<Embeddings[]> {
     const input = Array.isArray(payload.input) ? payload.input : [payload.input];
     const promises = input.map((inputText: string, index: number) =>
       this.invokeEmbeddingModel(
@@ -79,7 +76,7 @@ export class LobeBedrockAI implements LobeRuntimeAI {
   private invokeEmbeddingModel = async (
     payload: EmbeddingsPayload,
     options?: EmbeddingsOptions,
-  ): Promise<EmbeddingItem> => {
+  ): Promise<Embeddings> => {
     const command = new InvokeModelCommand({
       accept: 'application/json',
       body: JSON.stringify({
@@ -93,11 +90,7 @@ export class LobeBedrockAI implements LobeRuntimeAI {
     try {
       const res = await this.client.send(command, { abortSignal: options?.signal });
       const responseBody = JSON.parse(new TextDecoder().decode(res.body));
-      return {
-        embedding: responseBody.embedding,
-        index: payload.index as number,
-        object: 'embedding',
-      };
+      return responseBody.embedding;
     } catch (e) {
       const err = e as Error & { $metadata: any };
       throw AgentRuntimeError.chat({
