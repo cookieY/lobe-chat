@@ -81,6 +81,7 @@ const runProxyChainsConfGenerator = async (url) => {
 localnet 127.0.0.0/255.0.0.0
 localnet ::1/128
 localnet 10.0.0.0/255.0.0.0
+localnet 172.0.0.0/255.255.248.0
 strict_chain
 tcp_connect_time_out 8000
 tcp_read_time_out 15000
