@@ -83,6 +83,7 @@ export const DEFAULT_MODEL_PROVIDER_LIST = [
   DeepSeekProvider,
   HuggingFaceProvider,
   OpenRouterProvider,
+  CloudflareProvider,
   GithubProvider,
   NovitaProvider,
   TogetherAIProvider,
@@ -107,7 +108,6 @@ export const DEFAULT_MODEL_PROVIDER_LIST = [
   MinimaxProvider,
   Ai360Provider,
   TaichuProvider,
-  CloudflareProvider,
   SiliconCloudProvider,
 ];
 
