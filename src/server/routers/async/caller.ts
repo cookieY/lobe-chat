@@ -2,7 +2,7 @@ import { createTRPCClient, httpBatchLink } from '@trpc/client';
 import superjson from 'superjson';
 import urlJoin from 'url-join';
 
-import { appEnv } from '@/config/app';
+// import { appEnv } from '@/config/app';
 import { serverDBEnv } from '@/config/db';
 import { JWTPayload, LOBE_CHAT_AUTH_HEADER } from '@/const/auth';
 import { KeyVaultsGateKeeper } from '@/server/modules/KeyVaultsEncrypt';
@@ -25,7 +25,7 @@ export const createAsyncServerClient = async (userId: string, payload: JWTPayloa
       httpBatchLink({
         headers,
         transformer: superjson,
-        url: urlJoin(appEnv.APP_URL!, '/trpc/async'),
+        url: urlJoin('/trpc/async'),
       }),
     ],
   });
