@@ -3,7 +3,6 @@ import { authEnv } from '@/config/auth';
 import { fileEnv } from '@/config/file';
 import { knowledgeEnv } from '@/config/knowledge';
 import { langfuseEnv } from '@/config/langfuse';
-import { getLLMConfig } from '@/config/llm';
 import { enableNextAuth } from '@/const/auth';
 import { parseSystemAgent } from '@/server/globalConfig/parseSystemAgent';
 import { GlobalServerConfig } from '@/types/serverConfig';
@@ -33,7 +32,7 @@ export const getServerGlobalConfig = () => {
         modelListKey: 'AWS_BEDROCK_MODEL_LIST',
       },
       ollama: {
-        fetchOnClient: !getLLMConfig().OLLAMA_PROXY_URL,
+        fetchOnClient: !process.env.OLLAMA_PROXY_URL,
       },
     }),
     oAuthSSOProviders: authEnv.NEXT_AUTH_SSO_PROVIDERS.trim().split(/[,，]/),
