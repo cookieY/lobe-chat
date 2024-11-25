@@ -42,6 +42,7 @@ export interface UserKeyVaults {
   deepseek?: OpenAICompatibleKeyVault;
   doubao?: OpenAICompatibleKeyVault;
   fireworksai?: OpenAICompatibleKeyVault;
+  giteeai?: OpenAICompatibleKeyVault;
   github?: OpenAICompatibleKeyVault;
   google?: OpenAICompatibleKeyVault;
   groq?: OpenAICompatibleKeyVault;

@@ -13,6 +13,7 @@ import { LobeCloudflareAI, LobeCloudflareParams } from './cloudflare';
 import { LobeDeepSeekAI } from './deepseek';
 import { LobeDoubaoAI } from './doubao';
 import { LobeFireworksAI } from './fireworksai';
+import { LobeGiteeAI } from './giteeai';
 import { LobeGithubAI } from './github';
 import { LobeGoogleAI } from './google';
 import { LobeGroq } from './groq';
@@ -139,6 +140,7 @@ class AgentRuntime {
       deepseek: Partial<ClientOptions>;
       doubao: Partial<ClientOptions>;
       fireworksai: Partial<ClientOptions>;
+      giteeai: Partial<ClientOptions>;
       github: Partial<ClientOptions>;
       google: { apiKey?: string; baseURL?: string };
       groq: Partial<ClientOptions>;
@@ -302,6 +304,11 @@ class AgentRuntime {
 
       case ModelProvider.SiliconCloud: {
         runtimeModel = new LobeSiliconCloudAI(params.siliconcloud ?? {});
+        break;
+      }
+
+      case ModelProvider.GiteeAI: {
+        runtimeModel = new LobeGiteeAI(params.giteeai);
         break;
       }
 
