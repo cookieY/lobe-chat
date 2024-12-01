@@ -112,9 +112,6 @@ export const getLLMConfig = () => {
       ENABLED_HUGGINGFACE: z.boolean(),
       HUGGINGFACE_API_KEY: z.string().optional(),
 
-      ENABLED_DOUBAO: z.boolean(),
-      ARK_API_KEY: z.string().optional(),
-      ARK_MODEL_LIST: z.string().optional(),
       ENABLED_SENSENOVA: z.boolean(),
       SENSENOVA_ACCESS_KEY_ID: z.string().optional(),
       SENSENOVA_ACCESS_KEY_SECRET: z.string().optional(),
@@ -234,9 +231,6 @@ export const getLLMConfig = () => {
       ENABLED_HUGGINGFACE: !!process.env.HUGGINGFACE_API_KEY,
       HUGGINGFACE_API_KEY: process.env.HUGGINGFACE_API_KEY,
 
-      ENABLED_DOUBAO: !!(process.env.ARK_API_KEY && process.env.ARK_MODEL_LIST),
-      ARK_API_KEY: process.env.ARK_API_KEY,
-      ARK_MODEL_LIST: process.env.ARK_MODEL_LIST,
       ENABLED_SENSENOVA:
         !!process.env.SENSENOVA_ACCESS_KEY_ID && !!process.env.SENSENOVA_ACCESS_KEY_SECRET,
       SENSENOVA_ACCESS_KEY_ID: process.env.SENSENOVA_ACCESS_KEY_ID,

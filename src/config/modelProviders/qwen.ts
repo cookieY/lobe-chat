@@ -84,8 +84,7 @@ const Qwen: ModelProviderCard = {
       vision: true,
     },
     {
-      description:
-        '通义千问数学模型是专门用于数学解题的语言模型。',
+      description: '通义千问数学模型是专门用于数学解题的语言模型。',
       displayName: 'Qwen Math Turbo',
       id: 'qwen-math-turbo-latest',
       pricing: {
@@ -96,8 +95,7 @@ const Qwen: ModelProviderCard = {
       tokens: 4096,
     },
     {
-      description:
-        '通义千问数学模型是专门用于数学解题的语言模型。',
+      description: '通义千问数学模型是专门用于数学解题的语言模型。',
       displayName: 'Qwen Math Plus',
       id: 'qwen-math-plus-latest',
       pricing: {
@@ -128,6 +126,17 @@ const Qwen: ModelProviderCard = {
         output: 7,
       },
       tokens: 131_072,
+    },
+    {
+      description: 'QwQ模型是由 Qwen 团队开发的实验性研究模型，专注于增强 AI 推理能力。',
+      displayName: 'QwQ 32B Preview',
+      id: 'qwq-32b-preview',
+      pricing: {
+        currency: 'CNY',
+        input: 0,
+        output: 0,
+      },
+      tokens: 32_768,
     },
     {
       description: '通义千问2.5对外开源的7B规模的模型。',
@@ -254,6 +263,9 @@ const Qwen: ModelProviderCard = {
   modelList: { showModelFetcher: true },
   modelsUrl: 'https://help.aliyun.com/zh/dashscope/developer-reference/api-details',
   name: 'Qwen',
+  proxyUrl: {
+    placeholder: 'https://dashscope.aliyuncs.com/compatible-mode/v1',
+  },
   smoothing: {
     speed: 2,
     text: true,

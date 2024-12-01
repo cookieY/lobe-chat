@@ -38,7 +38,7 @@ const getLlmOptionsFromPayload = (provider: string, payload: JWTPayload) => {
     default: {
       let upperProvider = provider.toUpperCase();
 
-      if (!( `${upperProvider}_API_KEY` in llmConfig)) {
+      if (!(`${upperProvider}_API_KEY` in llmConfig)) {
         upperProvider = ModelProvider.OpenAI.toUpperCase(); // Use OpenAI options as default
       }
 
@@ -47,12 +47,12 @@ const getLlmOptionsFromPayload = (provider: string, payload: JWTPayload) => {
 
       return baseURL ? { apiKey, baseURL } : { apiKey };
     }
-    case ModelProvider.Doubao: {
-      const { ARK_API_KEY } = getLLMConfig();
+    case ModelProvider.Ollama: {
+      const baseURL = payload?.endpoint || process.env.OLLAMA_PROXY_URL;
 
-      const apiKey = apiKeyManager.pick(payload?.apiKey || ARK_API_KEY);
-      return { apiKey };
+      return { baseURL };
     }
+
     case ModelProvider.Azure: {
       const { AZURE_API_KEY, AZURE_API_VERSION, AZURE_ENDPOINT } = llmConfig;
       const apikey = apiKeyManager.pick(payload?.apiKey || AZURE_API_KEY);
