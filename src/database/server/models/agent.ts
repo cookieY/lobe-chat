@@ -1,7 +1,6 @@
 import { inArray } from 'drizzle-orm';
 import { and, desc, eq } from 'drizzle-orm/expressions';
 
-import { serverDB } from '@/database/server';
 import {
   agents,
   agentsFiles,
@@ -9,7 +8,8 @@ import {
   agentsToSessions,
   files,
   knowledgeBases,
-} from '@/database/server/schemas/lobechat';
+} from '@/database/schemas';
+import { serverDB } from '@/database/server';
 
 export class AgentModel {
   private userId: string;

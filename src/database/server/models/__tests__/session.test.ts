@@ -2,6 +2,7 @@ import { eq, inArray } from 'drizzle-orm';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
 import { getTestDBInstance } from '@/database/server/core/dbForTest';
+import { idGenerator } from '@/database/utils/idGenerator';
 
 import {
   NewSession,
@@ -13,8 +14,7 @@ import {
   sessions,
   topics,
   users,
-} from '../../schemas/lobechat';
-import { idGenerator } from '../../utils/idGenerator';
+} from '../../../schemas';
 import { SessionModel } from '../session';
 
 let serverDB = await getTestDBInstance();

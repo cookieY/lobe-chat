@@ -1,11 +1,7 @@
 import { and, eq, inArray } from 'drizzle-orm';
 
+import { NewEvalDatasetRecordsItem, evalDatasetRecords, files } from '@/database/schemas';
 import { serverDB } from '@/database/server';
-import {
-  NewEvalDatasetRecordsItem,
-  evalDatasetRecords,
-  files,
-} from '@/database/server/schemas/lobechat';
 import { EvalDatasetRecordRefFile } from '@/types/eval';
 
 export class EvalDatasetRecordModel {

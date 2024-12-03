@@ -1,7 +1,6 @@
 import { eq, inArray, sql } from 'drizzle-orm';
 import { and } from 'drizzle-orm/expressions';
 
-import { serverDB } from '@/database/server';
 import {
   agents,
   agentsToSessions,
@@ -11,7 +10,8 @@ import {
   sessionGroups,
   sessions,
   topics,
-} from '@/database/server/schemas/lobechat';
+} from '@/database/schemas';
+import { serverDB } from '@/database/server';
 import { ImportResult } from '@/services/config';
 import { ImporterEntryData } from '@/types/importer';
 

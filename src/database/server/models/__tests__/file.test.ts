@@ -6,13 +6,7 @@ import { getServerDBConfig, serverDBEnv } from '@/config/db';
 import { getTestDBInstance } from '@/database/server/core/dbForTest';
 import { FilesTabs, SortType } from '@/types/files';
 
-import {
-  files,
-  globalFiles,
-  knowledgeBaseFiles,
-  knowledgeBases,
-  users,
-} from '../../schemas/lobechat';
+import { files, globalFiles, knowledgeBaseFiles, knowledgeBases, users } from '../../../schemas';
 import { FileModel } from '../file';
 
 let serverDB = await getTestDBInstance();

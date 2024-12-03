@@ -1,8 +1,8 @@
 import { z } from 'zod';
 
+import { insertAgentSchema, insertSessionSchema } from '@/database/schemas';
 import { SessionModel } from '@/database/server/models/session';
 import { SessionGroupModel } from '@/database/server/models/sessionGroup';
-import { insertAgentSchema, insertSessionSchema } from '@/database/server/schemas/lobechat';
 import { authedProcedure, publicProcedure, router } from '@/libs/trpc';
 import { AgentChatConfigSchema } from '@/types/agent';
 import { LobeMetaDataSchema } from '@/types/meta';

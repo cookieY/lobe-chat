@@ -4,14 +4,7 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
 import { getTestDBInstance } from '@/database/server/core/dbForTest';
 
-import {
-  chunks,
-  embeddings,
-  fileChunks,
-  files,
-  unstructuredChunks,
-  users,
-} from '../../schemas/lobechat';
+import { chunks, embeddings, fileChunks, files, unstructuredChunks, users } from '../../../schemas';
 import { ChunkModel } from '../chunk';
 import { codeEmbedding, designThinkingQuery, designThinkingQuery2 } from './fixtures/embedding';
 

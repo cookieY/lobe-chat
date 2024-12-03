@@ -1,13 +1,13 @@
 import { inArray } from 'drizzle-orm';
 import { z } from 'zod';
 
+import { knowledgeBaseFiles } from '@/database/schemas';
 import { serverDB } from '@/database/server';
 import { AsyncTaskModel } from '@/database/server/models/asyncTask';
 import { ChunkModel } from '@/database/server/models/chunk';
 import { EmbeddingModel } from '@/database/server/models/embedding';
 import { FileModel } from '@/database/server/models/file';
 import { MessageModel } from '@/database/server/models/message';
-import { knowledgeBaseFiles } from '@/database/server/schemas/lobechat';
 import { authedProcedure, router } from '@/libs/trpc';
 import { keyVaults } from '@/libs/trpc/middleware/keyVaults';
 import { getServerGlobalConfig } from '@/server/globalConfig';

@@ -4,11 +4,11 @@ import pMap from 'p-map';
 import { z } from 'zod';
 
 import { fileEnv } from '@/config/file';
+import { NewChunkItem, NewEmbeddingsItem } from '@/database/schemas';
 import { ASYNC_TASK_TIMEOUT, AsyncTaskModel } from '@/database/server/models/asyncTask';
 import { ChunkModel } from '@/database/server/models/chunk';
 import { EmbeddingModel } from '@/database/server/models/embedding';
 import { FileModel } from '@/database/server/models/file';
-import { NewChunkItem, NewEmbeddingsItem } from '@/database/server/schemas/lobechat';
 import { asyncAuthedProcedure, asyncRouter as router } from '@/libs/trpc/async';
 import { getServerGlobalConfig } from '@/server/globalConfig';
 import { initAgentRuntimeWithUserPayload } from '@/server/modules/AgentRuntime';

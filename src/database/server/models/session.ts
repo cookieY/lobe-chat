@@ -5,6 +5,7 @@ import { appEnv } from '@/config/app';
 import { INBOX_SESSION_ID } from '@/const/session';
 import { DEFAULT_AGENT_CONFIG } from '@/const/settings';
 import { serverDB } from '@/database/server/core/db';
+import { idGenerator } from '@/database/utils/idGenerator';
 import { parseAgentConfig } from '@/server/globalConfig/parseDefaultAgent';
 import { ChatSessionList, LobeAgentSession } from '@/types/session';
 import { merge } from '@/utils/merge';
@@ -18,8 +19,7 @@ import {
   agentsToSessions,
   sessionGroups,
   sessions,
-} from '../schemas/lobechat';
-import { idGenerator } from '../utils/idGenerator';
+} from '../../schemas';
 
 export class SessionModel {
   private userId: string;
