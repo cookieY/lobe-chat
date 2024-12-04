@@ -21,12 +21,6 @@ import { LobeNextAuthDbAdapter } from '@/libs/next-auth/adapter';
 let serverDB = await getTestDBInstance();
 let nextAuthAdapter = LobeNextAuthDbAdapter(serverDB);
 
-vi.mock('@/database/server/core/db', async () => ({
-  get serverDB() {
-    return serverDB;
-  },
-}));
-
 const userId = 'user-db';
 const user: AdapterUser = {
   id: userId,
