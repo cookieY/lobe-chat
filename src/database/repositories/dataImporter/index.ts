@@ -11,20 +11,22 @@ import {
   sessions,
   topics,
 } from '@/database/schemas';
-import { serverDB } from '@/database/server';
+import { LobeChatDatabase } from '@/database/type';
 import { ImportResult } from '@/services/config';
 import { ImporterEntryData } from '@/types/importer';
 
-export class DataImporterService {
+export class DataImporterRepos {
   private userId: string;
+  private db: LobeChatDatabase;
 
   /**
    * The version of the importer that this module supports
    */
   supportVersion = 7;
 
-  constructor(userId: string) {
+  constructor(db: LobeChatDatabase, userId: string) {
     this.userId = userId;
+    this.db = db;
   }
 
   importData = async (data: ImporterEntryData) => {
@@ -40,7 +42,7 @@ export class DataImporterService {
     let topicIdMap: Record<string, string> = {};
 
     // import sessionGroups
-    await serverDB.transaction(async (trx) => {
+    await this.db.transaction(async (trx) => {
       if (data.sessionGroups && data.sessionGroups.length > 0) {
         const query = await trx.query.sessionGroups.findMany({
           where: and(
