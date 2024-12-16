@@ -1,6 +1,44 @@
 [
   {
     "children": {
+      "improvements": ["Add new grok models."]
+    },
+    "date": "2024-12-14",
+    "version": "1.36.25"
+  },
+  {
+    "children": {
+      "improvements": ["Refactor file Url query in message model."]
+    },
+    "date": "2024-12-14",
+    "version": "1.36.24"
+  },
+  {
+    "children": {
+      "improvements": ["Support csv chunking."]
+    },
+    "date": "2024-12-13",
+    "version": "1.36.23"
+  },
+  {
+    "children": {},
+    "date": "2024-12-13",
+    "version": "1.36.22"
+  },
+  {
+    "children": {},
+    "date": "2024-12-13",
+    "version": "1.36.21"
+  },
+  {
+    "children": {
+      "improvements": ["Update locale."]
+    },
+    "date": "2024-12-13",
+    "version": "1.36.20"
+  },
+  {
+    "children": {
       "fixes": ["One of Gemini functionCall error."]
     },
     "date": "2024-12-13",
