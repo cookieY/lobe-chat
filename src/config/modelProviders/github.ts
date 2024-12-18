@@ -218,7 +218,7 @@ const Github: ModelProviderCard = {
   description: '通过GitHub模型，开发人员可以成为AI工程师，并使用行业领先的AI模型进行构建。',
   enabled: true,
   id: 'github',
-  // modelList: { showModelFetcher: true },
+  modelList: { showModelFetcher: true }, // I'm not sure if it is good to show the model fetcher, as remote list is not complete.
   name: 'GitHub',
   url: 'https://github.com/marketplace/models',
 };
