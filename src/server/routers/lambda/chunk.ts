@@ -1,4 +1,4 @@
-import { inArray } from 'drizzle-orm';
+import { inArray } from 'drizzle-orm/expressions';
 import { z } from 'zod';
 
 import { knowledgeBaseFiles } from '@/database/schemas';

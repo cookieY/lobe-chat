@@ -1,6 +1,6 @@
 // @vitest-environment node
-import { eq, inArray } from 'drizzle-orm';
-import { afterEach, beforeEach, describe, expect, it } from 'vitest';
+import { eq, inArray } from 'drizzle-orm/expressions';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
 import { getTestDBInstance } from '@/database/server/core/dbForTest';
 import { FilesTabs, SortType } from '@/types/files';

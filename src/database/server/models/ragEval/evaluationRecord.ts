@@ -1,4 +1,4 @@
-import { and, eq } from 'drizzle-orm';
+import { and, eq } from 'drizzle-orm/expressions';
 
 import { NewEvaluationRecordsItem, evaluationRecords } from '@/database/schemas';
 import { serverDB } from '@/database/server';
