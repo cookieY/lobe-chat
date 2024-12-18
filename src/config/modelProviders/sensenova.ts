@@ -18,7 +18,7 @@ const SenseNova: ModelProviderCard = {
       },
       tokens: 131_072,
     },
-/*
+    /*
     // Not compatible with local mode (Not support Base64 Image)
     {
       description:
@@ -119,6 +119,7 @@ const SenseNova: ModelProviderCard = {
     },
   ],
   checkModel: 'SenseChat-Turbo',
+  description: '商汤日日新，依托商汤大装置的强大的基础支撑，提供高效易用的全栈大模型服务。',
   disableBrowserRequest: true,
   id: 'sensenova',
   modelList: { showModelFetcher: true },
