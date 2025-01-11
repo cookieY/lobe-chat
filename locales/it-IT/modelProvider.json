@@ -79,7 +79,7 @@
     },
     "id": {
       "desc": "Identificatore unico del fornitore di servizi, non modificabile dopo la creazione",
-      "format": "Può contenere solo lettere minuscole, trattini (-) e underscore (_)",
+      "format": "Può contenere solo numeri, lettere minuscole, trattini (-) e underscore (_) ",
       "placeholder": "Si consiglia di utilizzare solo lettere minuscole, ad esempio openai, non modificabile dopo la creazione",
       "required": "Inserisci l'ID del fornitore",
       "title": "ID del fornitore"
@@ -151,7 +151,7 @@
       "title": "Download del modello in corso {{model}}"
     },
     "endpoint": {
-      "desc": "Inserisci l'indirizzo del proxy dell'interfaccia Ollama. Lascia vuoto se non specificato localmente",
+      "desc": "Deve includere http(s)://, può rimanere vuoto se non specificato localmente",
       "title": "Indirizzo del proxy dell'interfaccia"
     },
     "setup": {

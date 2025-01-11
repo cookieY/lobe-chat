@@ -79,7 +79,7 @@
     },
     "id": {
       "desc": "Eindeutige Kennung des Anbieters, die nach der Erstellung nicht mehr geändert werden kann",
-      "format": "Darf nur aus Kleinbuchstaben, Bindestrichen (-) und Unterstrichen (_) bestehen",
+      "format": "Darf nur aus Zahlen, Kleinbuchstaben, Bindestrichen (-) und Unterstrichen (_) bestehen",
       "placeholder": "Empfohlen in Kleinbuchstaben, z.B. openai, nach der Erstellung nicht mehr änderbar",
       "required": "Bitte geben Sie die Anbieter-ID ein",
       "title": "Anbieter-ID"
@@ -151,7 +151,7 @@
       "title": "Lade Modell {{model}} herunter"
     },
     "endpoint": {
-      "desc": "Geben Sie die Proxy-Adresse der Ollama-Schnittstelle ein, leer lassen, wenn lokal nicht spezifiziert",
+      "desc": "Muss http(s):// enthalten, kann leer gelassen werden, wenn lokal nicht zusätzlich angegeben.",
       "title": "Schnittstellen-Proxy-Adresse"
     },
     "setup": {

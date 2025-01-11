@@ -79,7 +79,7 @@
     },
     "id": {
       "desc": "Unique identifier for the service provider, which cannot be modified after creation",
-      "format": "Can only contain lowercase letters, hyphens (-), and underscores (_) ",
+      "format": "Can only contain numbers, lowercase letters, hyphens (-), and underscores (_) ",
       "placeholder": "Suggested all lowercase, e.g., openai, cannot be modified after creation",
       "required": "Please enter the provider ID",
       "title": "Provider ID"
@@ -151,7 +151,7 @@
       "title": "Downloading model {{model}}"
     },
     "endpoint": {
-      "desc": "Enter the Ollama interface proxy address, leave blank if not specified locally",
+      "desc": "Must include http(s)://; can be left blank if not specified locally.",
       "title": "Interface proxy address"
     },
     "setup": {

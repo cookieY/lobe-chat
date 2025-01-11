@@ -79,7 +79,7 @@
     },
     "id": {
       "desc": "Hizmet sağlayıcının benzersiz kimliği, oluşturulduktan sonra değiştirilemez",
-      "format": "Sadece küçük harfler, tire (-) ve alt çizgi (_) içerebilir",
+      "format": "Sadece rakamlar, küçük harfler, tire (-) ve alt çizgi (_) içerebilir",
       "placeholder": "Küçük harflerle yazılması önerilir, örneğin openai, oluşturduktan sonra değiştirilemez",
       "required": "Lütfen hizmet sağlayıcı ID'sini girin",
       "title": "Hizmet Sağlayıcı ID"
@@ -151,7 +151,7 @@
       "title": "正在下载模型 {{model}} "
     },
     "endpoint": {
-      "desc": "Ollama arayüz proxy adresini girin, yerel olarak belirtilmemişse boş bırakılabilir",
+      "desc": "http(s):// içermelidir, yerel olarak belirtilmemişse boş bırakılabilir",
       "title": "Arayüz Proxy Adresi"
     },
     "setup": {

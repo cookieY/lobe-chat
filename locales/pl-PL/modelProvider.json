@@ -79,7 +79,7 @@
     },
     "id": {
       "desc": "Unikalny identyfikator dostawcy usług, po utworzeniu nie można go zmienić",
-      "format": "Może zawierać tylko małe litery, myślniki (-) i podkreślenia (_)",
+      "format": "Może zawierać tylko cyfry, małe litery, myślniki (-) i podkreślenia (_) ",
       "placeholder": "Zaleca się użycie małych liter, np. openai, po utworzeniu nie można edytować",
       "required": "Proszę wpisać identyfikator dostawcy",
       "title": "Identyfikator dostawcy"
@@ -151,7 +151,7 @@
       "title": "Pobieranie modelu {{model}}"
     },
     "endpoint": {
-      "desc": "Wprowadź adres rest API Ollama, jeśli lokalnie nie określono, pozostaw puste",
+      "desc": "Musi zawierać http(s)://, lokalnie, jeśli nie określono inaczej, można pozostawić puste",
       "title": "Adres proxy API"
     },
     "setup": {
