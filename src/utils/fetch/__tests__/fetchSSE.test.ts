@@ -437,7 +437,7 @@ describe('fetchSSE', () => {
           context: {
             chunk: 'abc',
             error: {
-              message: `Unexpected token 'a', \"abc\" is not valid JSON`,
+              message: 'Unexpected token \'a\', "abc" is not valid JSON',
               name: 'SyntaxError',
             },
           },
