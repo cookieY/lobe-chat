@@ -1,4 +1,4 @@
-import { SystemAgentItem } from '../user/settings/systemAgent';
+import { FilesConfigItem } from '../user/settings/filesConfig';
 
 export enum KnowledgeBaseTabs {
   Files = 'files',
@@ -45,8 +45,9 @@ export interface KnowledgeItem {
   name: string;
   type: KnowledgeType;
 }
+
 export interface SystemEmbeddingConfig {
-  embedding_model?: SystemAgentItem;
-  query_mode?: SystemAgentItem;
-  reranker_model?: SystemAgentItem;
+  embeddingModel: FilesConfigItem;
+  queryModel: string;
+  rerankerModel: FilesConfigItem;
 }

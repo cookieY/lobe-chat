@@ -4,6 +4,7 @@ import { z } from 'zod';
 
 import { chainAnswerWithContext } from '@/chains/answerWithContext';
 import { DEFAULT_MODEL } from '@/const/settings';
+import { DEFAULT_FILE_EMBEDDING_MODEL_ITEM } from '@/const/settings/knowledge';
 import { serverDB } from '@/database/server';
 import { ChunkModel } from '@/database/server/models/chunk';
 import { EmbeddingModel } from '@/database/server/models/embedding';
@@ -14,7 +15,7 @@ import {
   EvaluationRecordModel,
 } from '@/database/server/models/ragEval';
 import { asyncAuthedProcedure, asyncRouter as router } from '@/libs/trpc/async';
-import { getServerGlobalConfig } from '@/server/globalConfig';
+import { getServerDefaultFilesConfig } from '@/server/globalConfig';
 import { initAgentRuntimeWithUserPayload } from '@/server/modules/AgentRuntime';
 import { ChunkService } from '@/server/services/chunk';
 import { AsyncTaskError } from '@/types/asyncTask';
@@ -45,8 +46,8 @@ export const ragEvalRouter = router({
     )
     .mutation(async ({ ctx, input }) => {
       const evalRecord = await ctx.evalRecordModel.findById(input.evalRecordId);
-      const model = getServerGlobalConfig().defaultEmbed!!.embedding_model!!.model as string;
-      const provider = getServerGlobalConfig().defaultEmbed!!.embedding_model!!.provider as string;
+      const { model, provider } =
+        getServerDefaultFilesConfig().embeddingModel || DEFAULT_FILE_EMBEDDING_MODEL_ITEM;
 
       if (!evalRecord) {
         throw new TRPCError({ code: 'BAD_REQUEST', message: 'Evaluation not found' });

@@ -5,6 +5,7 @@ import { z } from 'zod';
 
 import { serverDBEnv } from '@/config/db';
 import { fileEnv } from '@/config/file';
+import { DEFAULT_FILE_EMBEDDING_MODEL_ITEM } from '@/const/settings/knowledge';
 import { NewChunkItem, NewEmbeddingsItem } from '@/database/schemas';
 import { serverDB } from '@/database/server';
 import { ASYNC_TASK_TIMEOUT, AsyncTaskModel } from '@/database/server/models/asyncTask';
@@ -12,7 +13,7 @@ import { ChunkModel } from '@/database/server/models/chunk';
 import { EmbeddingModel } from '@/database/server/models/embedding';
 import { FileModel } from '@/database/server/models/file';
 import { asyncAuthedProcedure, asyncRouter as router } from '@/libs/trpc/async';
-import { getServerGlobalConfig } from '@/server/globalConfig';
+import { getServerDefaultFilesConfig } from '@/server/globalConfig';
 import { initAgentRuntimeWithUserPayload } from '@/server/modules/AgentRuntime';
 import { S3 } from '@/server/modules/S3';
 import { ChunkService } from '@/server/services/chunk';
@@ -55,11 +56,9 @@ export const fileRouter = router({
 
       const asyncTask = await ctx.asyncTaskModel.findById(input.taskId);
 
-      const model = getServerGlobalConfig().defaultEmbed!!.embedding_model!!.model as string;
-      const provider = getServerGlobalConfig().defaultEmbed!!.embedding_model!!.provider as string;
+      const { model, provider } =
+        getServerDefaultFilesConfig().embeddingModel || DEFAULT_FILE_EMBEDDING_MODEL_ITEM;
 
-      console.log('embeddingProvider:', provider);
-      console.log('embeddingModel:', model);
       if (!asyncTask) throw new TRPCError({ code: 'BAD_REQUEST', message: 'Async Task not found' });
 
       try {
@@ -100,11 +99,10 @@ export const fileRouter = router({
                 console.log(`执行第 ${number} 个任务`);
 
                 console.time(`任务[${number}]: embeddings`);
-
                 const embeddings = await agentRuntime.embeddings({
                   dimensions: 1024,
                   input: chunks.map((c) => c.text),
-                  model: model,
+                  model,
                 });
                 console.timeEnd(`任务[${number}]: embeddings`);
 
@@ -113,7 +111,7 @@ export const fileRouter = router({
                     chunkId: chunks[idx].id,
                     embeddings: e,
                     fileId: input.fileId,
-                    model: model,
+                    model,
                   })) || [];
 
                 console.time(`任务[${number}]: insert db`);

@@ -10,6 +10,7 @@ import { GlobalServerConfig } from '@/types/serverConfig';
 import { genServerLLMConfig } from './_deprecated';
 import { genServerAiProvidersConfig } from './genServerAiProviderConfig';
 import { parseAgentConfig } from './parseDefaultAgent';
+import { parseFilesConfig } from './parseFilesConfig';
 
 export const getServerGlobalConfig = () => {
   const { ACCESS_CODES, DEFAULT_AGENT_CONFIG } = getAppConfig();
@@ -35,7 +36,6 @@ export const getServerGlobalConfig = () => {
     defaultAgent: {
       config: parseAgentConfig(DEFAULT_AGENT_CONFIG),
     },
-    defaultEmbed: parseSystemAgent(knowledgeEnv.DEFAULT_FILES_CONFIG),
     enableUploadFileToServer: !!fileEnv.S3_SECRET_ACCESS_KEY,
     enabledAccessCode: ACCESS_CODES?.length > 0,
 
@@ -74,4 +74,8 @@ export const getServerDefaultAgentConfig = () => {
   const { DEFAULT_AGENT_CONFIG } = getAppConfig();
 
   return parseAgentConfig(DEFAULT_AGENT_CONFIG) || {};
+};
+
+export const getServerDefaultFilesConfig = () => {
+  return parseFilesConfig(knowledgeEnv.DEFAULT_FILES_CONFIG);
 };

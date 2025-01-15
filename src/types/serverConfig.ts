@@ -7,7 +7,6 @@ import {
   UserSystemAgentConfig,
 } from '@/types/user/settings';
 
-import { SystemEmbeddingConfig } from './knowledgeBase';
 
 export interface ServerModelProviderConfig {
   enabled?: boolean;
@@ -24,7 +23,6 @@ export type ServerLanguageModel = Partial<Record<GlobalLLMProviderKey, ServerMod
 export interface GlobalServerConfig {
   aiProvider?: ServerLanguageModel;
   defaultAgent?: DeepPartial<UserDefaultAgent>;
-  defaultEmbed?: DeepPartial<SystemEmbeddingConfig>;
   enableUploadFileToServer?: boolean;
   enabledAccessCode?: boolean;
   enabledOAuthSSO?: boolean;

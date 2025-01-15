@@ -1,6 +1,7 @@
 import { inArray } from 'drizzle-orm/expressions';
 import { z } from 'zod';
 
+import { DEFAULT_FILE_EMBEDDING_MODEL_ITEM } from '@/const/settings/knowledge';
 import { knowledgeBaseFiles } from '@/database/schemas';
 import { serverDB } from '@/database/server';
 import { AsyncTaskModel } from '@/database/server/models/asyncTask';
@@ -10,7 +11,7 @@ import { FileModel } from '@/database/server/models/file';
 import { MessageModel } from '@/database/server/models/message';
 import { authedProcedure, router } from '@/libs/trpc';
 import { keyVaults } from '@/libs/trpc/middleware/keyVaults';
-import { getServerGlobalConfig } from '@/server/globalConfig';
+import { getServerDefaultFilesConfig } from '@/server/globalConfig';
 import { initAgentRuntimeWithUserPayload } from '@/server/modules/AgentRuntime';
 import { ChunkService } from '@/server/services/chunk';
 import { SemanticSearchSchema } from '@/types/rag';
@@ -104,15 +105,14 @@ export const chunkRouter = router({
       }),
     )
     .mutation(async ({ ctx, input }) => {
-      console.time('embedding');
-      const model = getServerGlobalConfig().defaultEmbed!!.embedding_model!!.model as string;
-      const provider = getServerGlobalConfig().defaultEmbed!!.embedding_model!!.provider as string;
+      const { model, provider } =
+        getServerDefaultFilesConfig().embeddingModel || DEFAULT_FILE_EMBEDDING_MODEL_ITEM;
       const agentRuntime = await initAgentRuntimeWithUserPayload(provider, ctx.jwtPayload);
 
       const embeddings = await agentRuntime.embeddings({
         dimensions: 1024,
         input: input.query,
-        model: model,
+        model,
       });
       console.timeEnd('embedding');
 
@@ -127,12 +127,10 @@ export const chunkRouter = router({
     .input(SemanticSearchSchema)
     .mutation(async ({ ctx, input }) => {
       const item = await ctx.messageModel.findMessageQueriesById(input.messageId);
-      const model = getServerGlobalConfig().defaultEmbed!!.embedding_model!!.model as string;
-      const provider = getServerGlobalConfig().defaultEmbed!!.embedding_model!!.provider as string;
+      const { model, provider } =
+        getServerDefaultFilesConfig().embeddingModel || DEFAULT_FILE_EMBEDDING_MODEL_ITEM;
       let embedding: number[];
       let ragQueryId: string;
-      console.log('embeddingProvider:', provider);
-      console.log('embeddingModel:', model);
       // if there is no message rag or it's embeddings, then we need to create one
       if (!item || !item.embeddings) {
         // TODO: need to support customize
@@ -141,13 +139,13 @@ export const chunkRouter = router({
         const embeddings = await agentRuntime.embeddings({
           dimensions: 1024,
           input: input.rewriteQuery,
-          model: model,
+          model,
         });
 
         embedding = embeddings![0];
         const embeddingsId = await ctx.embeddingModel.create({
           embeddings: embedding,
-          model: model,
+          model,
         });
 
         const result = await ctx.messageModel.createMessageQuery({

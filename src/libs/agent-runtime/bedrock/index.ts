@@ -56,14 +56,20 @@ export class LobeBedrockAI implements LobeRuntimeAI {
 
     return this.invokeClaudeModel(payload, options);
   }
-
+  /**
+   * Supports the Amazon Titan Text models series.
+   * Cohere Embed models are not supported
+   * because the current text size per request
+   * exceeds the maximum 2048 characters limit
+   * for a single request for this series of models.
+   * [bedrock embed guide] https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters-embed.html
+   */
   async embeddings(payload: EmbeddingsPayload, options?: EmbeddingsOptions): Promise<Embeddings[]> {
     const input = Array.isArray(payload.input) ? payload.input : [payload.input];
-    const promises = input.map((inputText: string, index: number) =>
+    const promises = input.map((inputText: string) =>
       this.invokeEmbeddingModel(
         {
           dimensions: payload.dimensions,
-          index: index,
           input: inputText,
           model: payload.model,
         },
