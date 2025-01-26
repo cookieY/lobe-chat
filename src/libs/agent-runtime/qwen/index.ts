@@ -1,6 +1,12 @@
+import { LOBE_DEFAULT_MODEL_LIST } from '@/config/aiModels';
+
 import { ModelProvider } from '../types';
 import { LobeOpenAICompatibleFactory } from '../utils/openaiCompatibleFactory';
 import { QwenAIStream } from '../utils/streams';
+
+export interface QwenModelCard {
+  id: string;
+}
 
 /*
   QwenEnableSearchModelSeries: An array of Qwen model series that support the enable_search parameter.
@@ -40,7 +46,7 @@ export const LobeQwenAI = LobeOpenAICompatibleFactory({
           temperature !== undefined && temperature >= 0 && temperature < 2
             ? temperature
             : undefined,
-        ...(model.startsWith('qwen-vl')
+        ...(model.startsWith('qvq') || model.startsWith('qwen-vl')
           ? {
               top_p: top_p !== undefined && top_p > 0 && top_p <= 1 ? top_p : undefined,
             }
@@ -54,12 +60,33 @@ export const LobeQwenAI = LobeOpenAICompatibleFactory({
               search_strategy: process.env.QWEN_SEARCH_STRATEGY || 'standard', // standard or pro
             },
           }),
+        ...(payload.tools && {
+          parallel_tool_calls: true,
+        }),
       } as any;
     },
     handleStream: QwenAIStream,
   },
   debug: {
     chatCompletion: () => process.env.DEBUG_QWEN_CHAT_COMPLETION === '1',
+  },
+  models: {
+    transformModel: (m) => {
+      const functionCallKeywords = ['qwen-max', 'qwen-plus', 'qwen-turbo', 'qwen2.5'];
+
+      const visionKeywords = ['qvq', 'vl'];
+
+      const model = m as unknown as QwenModelCard;
+
+      return {
+        enabled: LOBE_DEFAULT_MODEL_LIST.find((m) => model.id.endsWith(m.id))?.enabled || false,
+        functionCall: functionCallKeywords.some((keyword) =>
+          model.id.toLowerCase().includes(keyword),
+        ),
+        id: model.id,
+        vision: visionKeywords.some((keyword) => model.id.toLowerCase().includes(keyword)),
+      };
+    },
   },
   provider: ModelProvider.Qwen,
 });

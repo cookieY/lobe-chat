@@ -2,6 +2,365 @@
 
 # Changelog
 
+### [Version 1.48.2](https://github.com/lobehub/lobe-chat/compare/v1.48.1...v1.48.2)
+
+<sup>Released on **2025-01-25**</sup>
+
+#### 💄 Styles
+
+- **misc**: Add `parallel_tool_calls` support for Qwen, fix tag version and add provider changelog.
+
+<br/>
+
+<details>
+<summary><kbd>Improvements and Fixes</kbd></summary>
+
+#### Styles
+
+- **misc**: Add `parallel_tool_calls` support for Qwen, closes [#5584](https://github.com/lobehub/lobe-chat/issues/5584) ([b89aeeb](https://github.com/lobehub/lobe-chat/commit/b89aeeb))
+- **misc**: Fix tag version and add provider changelog, closes [#5582](https://github.com/lobehub/lobe-chat/issues/5582) ([63c571b](https://github.com/lobehub/lobe-chat/commit/63c571b))
+
+</details>
+
+<div align="right">
+
+[![](https://img.shields.io/badge/-BACK_TO_TOP-151515?style=flat-square)](#readme-top)
+
+</div>
+
+### [Version 1.48.1](https://github.com/lobehub/lobe-chat/compare/v1.48.0...v1.48.1)
+
+<sup>Released on **2025-01-25**</sup>
+
+#### 🐛 Bug Fixes
+
+- **misc**: Fix ollama Browser Request failed in PG mode.
+
+<br/>
+
+<details>
+<summary><kbd>Improvements and Fixes</kbd></summary>
+
+#### What's fixed
+
+- **misc**: Fix ollama Browser Request failed in PG mode, closes [#5585](https://github.com/lobehub/lobe-chat/issues/5585) ([b2f3c33](https://github.com/lobehub/lobe-chat/commit/b2f3c33))
+
+</details>
+
+<div align="right">
+
+[![](https://img.shields.io/badge/-BACK_TO_TOP-151515?style=flat-square)](#readme-top)
+
+</div>
+
+## [Version 1.48.0](https://github.com/lobehub/lobe-chat/compare/v1.47.23...v1.48.0)
+
+<sup>Released on **2025-01-24**</sup>
+
+#### ✨ Features
+
+- **misc**: Support display thinking for DeepSeek R1.
+
+<br/>
+
+<details>
+<summary><kbd>Improvements and Fixes</kbd></summary>
+
+#### What's improved
+
+- **misc**: Support display thinking for DeepSeek R1, closes [#5558](https://github.com/lobehub/lobe-chat/issues/5558) ([f98bb5a](https://github.com/lobehub/lobe-chat/commit/f98bb5a))
+
+</details>
+
+<div align="right">
+
+[![](https://img.shields.io/badge/-BACK_TO_TOP-151515?style=flat-square)](#readme-top)
+
+</div>
+
+### [Version 1.47.23](https://github.com/lobehub/lobe-chat/compare/v1.47.22...v1.47.23)
+
+<sup>Released on **2025-01-24**</sup>
+
+#### 💄 Styles
+
+- **misc**: Fix model fetch match tag error & add Hunyuan model fetch support.
+
+<br/>
+
+<details>
+<summary><kbd>Improvements and Fixes</kbd></summary>
+
+#### Styles
+
+- **misc**: Fix model fetch match tag error & add Hunyuan model fetch support, closes [#5566](https://github.com/lobehub/lobe-chat/issues/5566) ([7b075ef](https://github.com/lobehub/lobe-chat/commit/7b075ef))
+
+</details>
+
+<div align="right">
+
+[![](https://img.shields.io/badge/-BACK_TO_TOP-151515?style=flat-square)](#readme-top)
+
+</div>
+
+### [Version 1.47.22](https://github.com/lobehub/lobe-chat/compare/v1.47.21...v1.47.22)
+
+<sup>Released on **2025-01-24**</sup>
+
+#### 🐛 Bug Fixes
+
+- **misc**: Fix form input in provider.
+
+<br/>
+
+<details>
+<summary><kbd>Improvements and Fixes</kbd></summary>
+
+#### What's fixed
+
+- **misc**: Fix form input in provider, closes [#5571](https://github.com/lobehub/lobe-chat/issues/5571) ([07e2396](https://github.com/lobehub/lobe-chat/commit/07e2396))
+
+</details>
+
+<div align="right">
+
+[![](https://img.shields.io/badge/-BACK_TO_TOP-151515?style=flat-square)](#readme-top)
+
+</div>
+
+### [Version 1.47.21](https://github.com/lobehub/lobe-chat/compare/v1.47.20...v1.47.21)
+
+<sup>Released on **2025-01-23**</sup>
+
+#### 💄 Styles
+
+- **misc**: Add HuggingFace Model: DeepSeek R1.
+
+<br/>
+
+<details>
+<summary><kbd>Improvements and Fixes</kbd></summary>
+
+#### Styles
+
+- **misc**: Add HuggingFace Model: DeepSeek R1, closes [#5564](https://github.com/lobehub/lobe-chat/issues/5564) ([66d4edd](https://github.com/lobehub/lobe-chat/commit/66d4edd))
+
+</details>
+
+<div align="right">
+
+[![](https://img.shields.io/badge/-BACK_TO_TOP-151515?style=flat-square)](#readme-top)
+
+</div>
+
+### [Version 1.47.20](https://github.com/lobehub/lobe-chat/compare/v1.47.19...v1.47.20)
+
+<sup>Released on **2025-01-23**</sup>
+
+#### 🐛 Bug Fixes
+
+- **misc**: Fix tts in new provider model.
+
+<br/>
+
+<details>
+<summary><kbd>Improvements and Fixes</kbd></summary>
+
+#### What's fixed
+
+- **misc**: Fix tts in new provider model, closes [#5569](https://github.com/lobehub/lobe-chat/issues/5569) ([3fef83e](https://github.com/lobehub/lobe-chat/commit/3fef83e))
+
+</details>
+
+<div align="right">
+
+[![](https://img.shields.io/badge/-BACK_TO_TOP-151515?style=flat-square)](#readme-top)
+
+</div>
+
+### [Version 1.47.19](https://github.com/lobehub/lobe-chat/compare/v1.47.18...v1.47.19)
+
+<sup>Released on **2025-01-23**</sup>
+
+#### 💄 Styles
+
+- **misc**: Add new stepfun model.
+
+<br/>
+
+<details>
+<summary><kbd>Improvements and Fixes</kbd></summary>
+
+#### Styles
+
+- **misc**: Add new stepfun model, closes [#5560](https://github.com/lobehub/lobe-chat/issues/5560) ([6e027e8](https://github.com/lobehub/lobe-chat/commit/6e027e8))
+
+</details>
+
+<div align="right">
+
+[![](https://img.shields.io/badge/-BACK_TO_TOP-151515?style=flat-square)](#readme-top)
+
+</div>
+
+### [Version 1.47.18](https://github.com/lobehub/lobe-chat/compare/v1.47.17...v1.47.18)
+
+<sup>Released on **2025-01-23**</sup>
+
+#### 🐛 Bug Fixes
+
+- **misc**: Fix debounce issue of provider config.
+
+<br/>
+
+<details>
+<summary><kbd>Improvements and Fixes</kbd></summary>
+
+#### What's fixed
+
+- **misc**: Fix debounce issue of provider config, closes [#5557](https://github.com/lobehub/lobe-chat/issues/5557) ([c971530](https://github.com/lobehub/lobe-chat/commit/c971530))
+
+</details>
+
+<div align="right">
+
+[![](https://img.shields.io/badge/-BACK_TO_TOP-151515?style=flat-square)](#readme-top)
+
+</div>
+
+### [Version 1.47.17](https://github.com/lobehub/lobe-chat/compare/v1.47.16...v1.47.17)
+
+<sup>Released on **2025-01-22**</sup>
+
+#### 🐛 Bug Fixes
+
+- **misc**: Upgrade `react-i18next` to ^15.
+
+<br/>
+
+<details>
+<summary><kbd>Improvements and Fixes</kbd></summary>
+
+#### What's fixed
+
+- **misc**: Upgrade `react-i18next` to ^15, closes [#5553](https://github.com/lobehub/lobe-chat/issues/5553) ([d0275fd](https://github.com/lobehub/lobe-chat/commit/d0275fd))
+
+</details>
+
+<div align="right">
+
+[![](https://img.shields.io/badge/-BACK_TO_TOP-151515?style=flat-square)](#readme-top)
+
+</div>
+
+### [Version 1.47.16](https://github.com/lobehub/lobe-chat/compare/v1.47.15...v1.47.16)
+
+<sup>Released on **2025-01-22**</sup>
+
+#### ♻ Code Refactoring
+
+- **misc**: Move hooks and component.
+
+#### 💄 Styles
+
+- **misc**: Add gemini new model.
+
+<br/>
+
+<details>
+<summary><kbd>Improvements and Fixes</kbd></summary>
+
+#### Code refactoring
+
+- **misc**: Move hooks and component, closes [#5551](https://github.com/lobehub/lobe-chat/issues/5551) ([c5db091](https://github.com/lobehub/lobe-chat/commit/c5db091))
+
+#### Styles
+
+- **misc**: Add gemini new model, closes [#5546](https://github.com/lobehub/lobe-chat/issues/5546) ([ebdd626](https://github.com/lobehub/lobe-chat/commit/ebdd626))
+
+</details>
+
+<div align="right">
+
+[![](https://img.shields.io/badge/-BACK_TO_TOP-151515?style=flat-square)](#readme-top)
+
+</div>
+
+### [Version 1.47.15](https://github.com/lobehub/lobe-chat/compare/v1.47.14...v1.47.15)
+
+<sup>Released on **2025-01-22**</sup>
+
+#### 💄 Styles
+
+- **misc**: Improve discover model page.
+
+<br/>
+
+<details>
+<summary><kbd>Improvements and Fixes</kbd></summary>
+
+#### Styles
+
+- **misc**: Improve discover model page, closes [#5544](https://github.com/lobehub/lobe-chat/issues/5544) ([979849c](https://github.com/lobehub/lobe-chat/commit/979849c))
+
+</details>
+
+<div align="right">
+
+[![](https://img.shields.io/badge/-BACK_TO_TOP-151515?style=flat-square)](#readme-top)
+
+</div>
+
+### [Version 1.47.14](https://github.com/lobehub/lobe-chat/compare/v1.47.13...v1.47.14)
+
+<sup>Released on **2025-01-22**</sup>
+
+#### 💄 Styles
+
+- **misc**: Support model list with model fetcher settings.
+
+<br/>
+
+<details>
+<summary><kbd>Improvements and Fixes</kbd></summary>
+
+#### Styles
+
+- **misc**: Support model list with model fetcher settings, closes [#5540](https://github.com/lobehub/lobe-chat/issues/5540) ([637fbf4](https://github.com/lobehub/lobe-chat/commit/637fbf4))
+
+</details>
+
+<div align="right">
+
+[![](https://img.shields.io/badge/-BACK_TO_TOP-151515?style=flat-square)](#readme-top)
+
+</div>
+
+### [Version 1.47.13](https://github.com/lobehub/lobe-chat/compare/v1.47.12...v1.47.13)
+
+<sup>Released on **2025-01-21**</sup>
+
+#### 💄 Styles
+
+- **misc**: Add `ModelFetcher` for supported providers.
+
+<br/>
+
+<details>
+<summary><kbd>Improvements and Fixes</kbd></summary>
+
+#### Styles
+
+- **misc**: Add `ModelFetcher` for supported providers, closes [#5316](https://github.com/lobehub/lobe-chat/issues/5316) [#252](https://github.com/lobehub/lobe-chat/issues/252) ([a189c81](https://github.com/lobehub/lobe-chat/commit/a189c81))
+
+</details>
+
+<div align="right">
+
+[![](https://img.shields.io/badge/-BACK_TO_TOP-151515?style=flat-square)](#readme-top)
+
+</div>
+
 ### [Version 1.47.12](https://github.com/lobehub/lobe-chat/compare/v1.47.11...v1.47.12)
 
 <sup>Released on **2025-01-21**</sup>

@@ -1,6 +1,106 @@
 [
   {
     "children": {
+      "improvements": [
+        "Add parallel_tool_calls support for Qwen, fix tag version and add provider changelog."
+      ]
+    },
+    "date": "2025-01-25",
+    "version": "1.48.2"
+  },
+  {
+    "children": {
+      "fixes": ["Fix ollama Browser Request failed in PG mode."]
+    },
+    "date": "2025-01-25",
+    "version": "1.48.1"
+  },
+  {
+    "children": {
+      "features": ["Support display thinking for DeepSeek R1."]
+    },
+    "date": "2025-01-24",
+    "version": "1.48.0"
+  },
+  {
+    "children": {
+      "improvements": ["Fix model fetch match tag error & add Hunyuan model fetch support."]
+    },
+    "date": "2025-01-24",
+    "version": "1.47.23"
+  },
+  {
+    "children": {
+      "fixes": ["Fix form input in provider."]
+    },
+    "date": "2025-01-24",
+    "version": "1.47.22"
+  },
+  {
+    "children": {
+      "improvements": ["Add HuggingFace Model: DeepSeek R1."]
+    },
+    "date": "2025-01-23",
+    "version": "1.47.21"
+  },
+  {
+    "children": {
+      "fixes": ["Fix tts in new provider model."]
+    },
+    "date": "2025-01-23",
+    "version": "1.47.20"
+  },
+  {
+    "children": {
+      "improvements": ["Add new stepfun model."]
+    },
+    "date": "2025-01-23",
+    "version": "1.47.19"
+  },
+  {
+    "children": {
+      "fixes": ["Fix debounce issue of provider config."]
+    },
+    "date": "2025-01-23",
+    "version": "1.47.18"
+  },
+  {
+    "children": {
+      "fixes": ["Upgrade react-i18next to ^15."]
+    },
+    "date": "2025-01-22",
+    "version": "1.47.17"
+  },
+  {
+    "children": {
+      "improvements": ["Add gemini new model."]
+    },
+    "date": "2025-01-22",
+    "version": "1.47.16"
+  },
+  {
+    "children": {
+      "improvements": ["Improve discover model page."]
+    },
+    "date": "2025-01-22",
+    "version": "1.47.15"
+  },
+  {
+    "children": {
+      "improvements": ["Support model list with model fetcher settings."]
+    },
+    "date": "2025-01-22",
+    "version": "1.47.14"
+  },
+  {
+    "children": {
+      "improvements": ["Add ModelFetcher for supported providers."]
+    },
+    "date": "2025-01-21",
+    "version": "1.47.13"
+  },
+  {
+    "children": {
       "improvements": ["Refactor [@nav](https://github.com/nav) layout and improve pin list style."]
     },
     "date": "2025-01-21",
