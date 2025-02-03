@@ -7,7 +7,6 @@ import {
   UserSystemAgentConfig,
 } from '@/types/user/settings';
 
-
 export interface ServerModelProviderConfig {
   enabled?: boolean;
   enabledModels?: string[];
@@ -21,7 +20,7 @@ export interface ServerModelProviderConfig {
 export type ServerLanguageModel = Partial<Record<GlobalLLMProviderKey, ServerModelProviderConfig>>;
 
 export interface GlobalServerConfig {
-  aiProvider?: ServerLanguageModel;
+  aiProvider: ServerLanguageModel;
   defaultAgent?: DeepPartial<UserDefaultAgent>;
   enableUploadFileToServer?: boolean;
   enabledAccessCode?: boolean;
