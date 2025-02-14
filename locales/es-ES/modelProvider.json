@@ -66,7 +66,6 @@
   "createNewAiProvider": {
     "apiKey": {
       "placeholder": "Por favor, introduce tu API Key",
-      "required": "Por favor, introduce tu API Key",
       "title": "API Key"
     },
     "basicTitle": "Información básica",
@@ -94,7 +93,8 @@
       "title": "Nombre del proveedor"
     },
     "proxyUrl": {
-      "placeholder": "Por favor, introduce tu dirección de solicitud, si no se completa, se usará la dirección de solicitud correspondiente del SDK",
+      "placeholder": "Por favor, introduce tu dirección de solicitud",
+      "required": "Por favor, introduce la dirección del proxy",
       "title": "Dirección del proxy"
     },
     "sdkType": {
@@ -276,6 +276,11 @@
         "latestTime": "Última actualización: {{time}}",
         "noLatestTime": "Lista aún no obtenida"
       },
+      "resetAll": {
+        "conform": "¿Confirmar el restablecimiento de todas las modificaciones del modelo actual? Después del restablecimiento, la lista de modelos actuales volverá al estado predeterminado",
+        "success": "Restablecimiento exitoso",
+        "title": "Restablecer todas las modificaciones"
+      },
       "search": "Buscar modelos...",
       "searchResult": "Se encontraron {{count}} modelos",
       "title": "Lista de modelos",
@@ -293,26 +298,6 @@
     "deleteSuccess": "Eliminación exitosa",
     "tooltip": "Actualizar configuración básica del proveedor",
     "updateSuccess": "Actualización exitosa"
-  },
-  "wenxin": {
-    "accessKey": {
-      "desc": "Introduce la Access Key de la plataforma Qianfan de Baidu",
-      "placeholder": "Access Key de Qianfan",
-      "title": "Access Key"
-    },
-    "checker": {
-      "desc": "Verifica si la AccessKey / SecretAccess está correctamente ingresada"
-    },
-    "secretKey": {
-      "desc": "Introduce la Secret Key de la plataforma Qianfan de Baidu",
-      "placeholder": "Secret Key de Qianfan",
-      "title": "Secret Key"
-    },
-    "unlock": {
-      "customRegion": "Región de servicio personalizada",
-      "description": "Introduce tu AccessKey / SecretKey para comenzar la sesión. La aplicación no registrará tu configuración de autenticación",
-      "title": "Usar información de autenticación personalizada de Wenxin Yiyan"
-    }
   },
   "zeroone": {
     "title": "01.AI Cero Uno Todo"

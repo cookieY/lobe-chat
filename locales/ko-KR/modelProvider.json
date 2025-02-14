@@ -66,7 +66,6 @@
   "createNewAiProvider": {
     "apiKey": {
       "placeholder": "API 키를 입력하세요",
-      "required": "API 키를 입력하세요",
       "title": "API 키"
     },
     "basicTitle": "기본 정보",
@@ -94,7 +93,8 @@
       "title": "서비스 제공자 이름"
     },
     "proxyUrl": {
-      "placeholder": "요청 주소를 입력하세요, 입력하지 않으면 SDK의 요청 주소가 사용됩니다",
+      "placeholder": "요청 주소를 입력하세요",
+      "required": "프록시 주소를 입력하세요",
       "title": "프록시 주소"
     },
     "sdkType": {
@@ -276,6 +276,11 @@
         "latestTime": "마지막 업데이트 시간: {{time}}",
         "noLatestTime": "아직 목록을 가져오지 않았습니다."
       },
+      "resetAll": {
+        "conform": "현재 모델의 모든 수정을 초기화하시겠습니까? 초기화 후 현재 모델 목록은 기본 상태로 돌아갑니다.",
+        "success": "초기화 성공",
+        "title": "모든 수정 초기화"
+      },
       "search": "모델 검색...",
       "searchResult": "{{count}} 개의 모델이 검색되었습니다",
       "title": "모델 목록",
@@ -293,26 +298,6 @@
     "deleteSuccess": "삭제 성공",
     "tooltip": "서비스 제공자 기본 설정 업데이트",
     "updateSuccess": "업데이트 성공"
-  },
-  "wenxin": {
-    "accessKey": {
-      "desc": "바이두 천범 플랫폼의 Access Key를 입력하세요",
-      "placeholder": "Qianfan Access Key",
-      "title": "Access Key"
-    },
-    "checker": {
-      "desc": "AccessKey / SecretAccess가 올바르게 입력되었는지 테스트합니다"
-    },
-    "secretKey": {
-      "desc": "바이두 천범 플랫폼의 Secret Key를 입력하세요",
-      "placeholder": "Qianfan Secret Key",
-      "title": "Secret Key"
-    },
-    "unlock": {
-      "customRegion": "사용자 정의 서비스 지역",
-      "description": "당신의 AccessKey / SecretKey를 입력하면 대화를 시작할 수 있습니다. 애플리케이션은 당신의 인증 구성을 기록하지 않습니다",
-      "title": "사용자 정의 문신 일언 인증 정보 사용"
-    }
   },
   "zeroone": {
     "title": "01.AI Zero One All Things"

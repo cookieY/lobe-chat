@@ -66,7 +66,6 @@
   "createNewAiProvider": {
     "apiKey": {
       "placeholder": "Пожалуйста, введите ваш API Key",
-      "required": "Пожалуйста, введите ваш API Key",
       "title": "API Key"
     },
     "basicTitle": "Основная информация",
@@ -94,7 +93,8 @@
       "title": "Имя провайдера"
     },
     "proxyUrl": {
-      "placeholder": "Пожалуйста, введите ваш адрес запроса, если не заполните, будет использован соответствующий адрес SDK",
+      "placeholder": "Пожалуйста, введите ваш адрес запроса",
+      "required": "Пожалуйста, введите адрес прокси",
       "title": "Адрес прокси"
     },
     "sdkType": {
@@ -276,6 +276,11 @@
         "latestTime": "Последнее обновление: {{time}}",
         "noLatestTime": "Список еще не получен"
       },
+      "resetAll": {
+        "conform": "Вы уверены, что хотите сбросить все изменения текущей модели? После сброса список текущих моделей вернется к состоянию по умолчанию",
+        "success": "Сброс выполнен успешно",
+        "title": "Сбросить все изменения"
+      },
       "search": "Поиск моделей...",
       "searchResult": "Найдено {{count}} моделей",
       "title": "Список моделей",
@@ -293,26 +298,6 @@
     "deleteSuccess": "Удаление успешно",
     "tooltip": "Обновить базовую конфигурацию провайдера",
     "updateSuccess": "Обновление успешно"
-  },
-  "wenxin": {
-    "accessKey": {
-      "desc": "Введите Access Key платформы Baidu Qianfan",
-      "placeholder": "Access Key Qianfan",
-      "title": "Access Key"
-    },
-    "checker": {
-      "desc": "Проверьте, правильно ли заполнены AccessKey / SecretAccess"
-    },
-    "secretKey": {
-      "desc": "Введите Secret Key платформы Baidu Qianfan",
-      "placeholder": "Secret Key Qianfan",
-      "title": "Secret Key"
-    },
-    "unlock": {
-      "customRegion": "Пользовательский регион сервиса",
-      "description": "Введите ваш AccessKey / SecretKey, чтобы начать сессию. Приложение не будет сохранять ваши данные аутентификации",
-      "title": "Использовать пользовательскую информацию аутентификации Wenxin Yiyan"
-    }
   },
   "zeroone": {
     "title": "01.AI Цифровая Вселенная"

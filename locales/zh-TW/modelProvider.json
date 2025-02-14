@@ -66,7 +66,6 @@
   "createNewAiProvider": {
     "apiKey": {
       "placeholder": "請填寫你的 API Key",
-      "required": "請填寫你的 API Key",
       "title": "API Key"
     },
     "basicTitle": "基本資訊",
@@ -94,7 +93,8 @@
       "title": "服務商名稱"
     },
     "proxyUrl": {
-      "placeholder": "請填寫你的請求地址，如果不填則會使用 SDK 對應的請求地址",
+      "placeholder": "請填寫你的請求地址",
+      "required": "請填寫代理地址",
       "title": "代理地址"
     },
     "sdkType": {
@@ -276,6 +276,11 @@
         "latestTime": "上次更新時間：{{time}}",
         "noLatestTime": "尚未取得列表"
       },
+      "resetAll": {
+        "conform": "確認重置當前模型的所有修改？重置後當前模型列表將會回到預設狀態",
+        "success": "重置成功",
+        "title": "重置所有修改"
+      },
       "search": "搜尋模型...",
       "searchResult": "搜尋到 {{count}} 個模型",
       "title": "模型列表",
@@ -293,26 +298,6 @@
     "deleteSuccess": "刪除成功",
     "tooltip": "更新服務商基礎配置",
     "updateSuccess": "更新成功"
-  },
-  "wenxin": {
-    "accessKey": {
-      "desc": "填入百度千帆平台的 Access Key",
-      "placeholder": "千帆 Access Key",
-      "title": "Access Key"
-    },
-    "checker": {
-      "desc": "測試 AccessKey / SecretAccess 是否填寫正確"
-    },
-    "secretKey": {
-      "desc": "填入百度千帆平台 Secret Key",
-      "placeholder": "千帆 Secret Key",
-      "title": "Secret Key"
-    },
-    "unlock": {
-      "customRegion": "自訂服務區域",
-      "description": "輸入你的 AccessKey / SecretKey 即可開始會話。應用不會記錄你的鑑權配置",
-      "title": "使用自訂文心一言鑑權資訊"
-    }
   },
   "zeroone": {
     "title": "01.AI 零一萬物"
