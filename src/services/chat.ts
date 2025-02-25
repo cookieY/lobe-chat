@@ -18,6 +18,7 @@ import {
 import { filesPrompts } from '@/prompts/files';
 import { BuiltinSystemRolePrompts } from '@/prompts/systemRole';
 import { aiModelSelectors, aiProviderSelectors, useAiInfraStore } from '@/store/aiInfra';
+import { getAgentChatConfig } from '@/store/chat/slices/aiChat/actions/helpers';
 import { useSessionStore } from '@/store/session';
 import { sessionMetaSelectors } from '@/store/session/selectors';
 import { useToolStore } from '@/store/tool';
@@ -29,6 +30,7 @@ import {
   preferenceSelectors,
   userProfileSelectors,
 } from '@/store/user/selectors';
+import { WebBrowsingManifest } from '@/tools/web-browsing';
 import { ChatErrorType } from '@/types/fetch';
 import { ChatMessage, MessageToolCall } from '@/types/message';
 import type { ChatStreamPayload, OpenAIChatMessage } from '@/types/openai/chat';
@@ -167,6 +169,25 @@ class ChatService {
       },
       params,
     );
+
+    // =================== 0. process search =================== //
+    const chatConfig = getAgentChatConfig();
+
+    const enabledSearch = chatConfig.searchMode !== 'off';
+    const isModelHasBuiltinSearch = aiModelSelectors.isModelHasBuiltinSearch(
+      payload.model,
+      payload.provider!,
+    )(useAiInfraStore.getState());
+
+    const useApplicationBuiltinSearchTool =
+      enabledSearch && !(isModelHasBuiltinSearch && chatConfig.useModelBuiltinSearch);
+
+    const pluginIds = [...(enabledPlugins || [])];
+
+    if (useApplicationBuiltinSearchTool) {
+      pluginIds.push(WebBrowsingManifest.identifier);
+    }
+
     // ============  1. preprocess messages   ============ //
 
     const oaiMessages = this.processMessages(
@@ -174,14 +195,14 @@ class ChatService {
         messages,
         model: payload.model,
         provider: payload.provider!,
-        tools: enabledPlugins,
+        tools: pluginIds,
       },
       options,
     );
 
     // ============  2. preprocess tools   ============ //
 
-    const filterTools = toolSelectors.enabledSchema(enabledPlugins)(useToolStore.getState());
+    let filterTools = toolSelectors.enabledSchema(pluginIds)(useToolStore.getState());
 
     // check this model can use function call
     const canUseFC = isCanUseFC(payload.model, payload.provider!);
@@ -193,7 +214,15 @@ class ChatService {
 
     const tools = shouldUseTools ? filterTools : undefined;
 
-    return this.getChatCompletion({ ...params, messages: oaiMessages, tools }, options);
+    return this.getChatCompletion(
+      {
+        ...params,
+        enabledSearch: enabledSearch && isModelHasBuiltinSearch ? true : undefined,
+        messages: oaiMessages,
+        tools,
+      },
+      options,
+    );
   };
 
   createAssistantMessageStream = async ({
@@ -224,6 +253,8 @@ class ChatService {
 
     const { provider = ModelProvider.OpenAI, ...res } = params;
 
+    // =================== process model =================== //
+    // ===================================================== //
     let model = res.model || DEFAULT_AGENT_CONFIG.model;
 
     // if the provider is Azure, get the deployment name as the request model
