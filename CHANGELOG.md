@@ -2,6 +2,209 @@
 
 # Changelog
 
+### [Version 1.69.6](https://github.com/lobehub/lobe-chat/compare/v1.69.5...v1.69.6)
+
+<sup>Released on **2025-03-09**</sup>
+
+#### 🐛 Bug Fixes
+
+- **misc**: Fix context cache control and model builtin search switch.
+
+<br/>
+
+<details>
+<summary><kbd>Improvements and Fixes</kbd></summary>
+
+#### What's fixed
+
+- **misc**: Fix context cache control and model builtin search switch, closes [#6831](https://github.com/lobehub/lobe-chat/issues/6831) ([5c6b8ea](https://github.com/lobehub/lobe-chat/commit/5c6b8ea))
+
+</details>
+
+<div align="right">
+
+[![](https://img.shields.io/badge/-BACK_TO_TOP-151515?style=flat-square)](#readme-top)
+
+</div>
+
+### [Version 1.69.5](https://github.com/lobehub/lobe-chat/compare/v1.69.4...v1.69.5)
+
+<sup>Released on **2025-03-09**</sup>
+
+#### 💄 Styles
+
+- **chat**: Auto send message from URL.
+- **misc**: Support openrouter claude 3.7 sonnet reasoning.
+
+<br/>
+
+<details>
+<summary><kbd>Improvements and Fixes</kbd></summary>
+
+#### Styles
+
+- **chat**: Auto send message from URL, closes [#6497](https://github.com/lobehub/lobe-chat/issues/6497) ([30b2639](https://github.com/lobehub/lobe-chat/commit/30b2639))
+- **misc**: Support openrouter claude 3.7 sonnet reasoning, closes [#6806](https://github.com/lobehub/lobe-chat/issues/6806) ([f1ffc2c](https://github.com/lobehub/lobe-chat/commit/f1ffc2c))
+
+</details>
+
+<div align="right">
+
+[![](https://img.shields.io/badge/-BACK_TO_TOP-151515?style=flat-square)](#readme-top)
+
+</div>
+
+### [Version 1.69.4](https://github.com/lobehub/lobe-chat/compare/v1.69.3...v1.69.4)
+
+<sup>Released on **2025-03-09**</sup>
+
+#### 🐛 Bug Fixes
+
+- **misc**: Fix mistral can not chat.
+
+<br/>
+
+<details>
+<summary><kbd>Improvements and Fixes</kbd></summary>
+
+#### What's fixed
+
+- **misc**: Fix mistral can not chat, closes [#6828](https://github.com/lobehub/lobe-chat/issues/6828) ([00cba71](https://github.com/lobehub/lobe-chat/commit/00cba71))
+
+</details>
+
+<div align="right">
+
+[![](https://img.shields.io/badge/-BACK_TO_TOP-151515?style=flat-square)](#readme-top)
+
+</div>
+
+### [Version 1.69.3](https://github.com/lobehub/lobe-chat/compare/v1.69.2...v1.69.3)
+
+<sup>Released on **2025-03-08**</sup>
+
+#### 💄 Styles
+
+- **misc**: Add login ui for next-auth.
+
+<br/>
+
+<details>
+<summary><kbd>Improvements and Fixes</kbd></summary>
+
+#### Styles
+
+- **misc**: Add login ui for next-auth, closes [#6434](https://github.com/lobehub/lobe-chat/issues/6434) ([541f275](https://github.com/lobehub/lobe-chat/commit/541f275))
+
+</details>
+
+<div align="right">
+
+[![](https://img.shields.io/badge/-BACK_TO_TOP-151515?style=flat-square)](#readme-top)
+
+</div>
+
+### [Version 1.69.2](https://github.com/lobehub/lobe-chat/compare/v1.69.1...v1.69.2)
+
+<sup>Released on **2025-03-07**</sup>
+
+#### ♻ Code Refactoring
+
+- **misc**: Refactor the agent runtime implement.
+
+<br/>
+
+<details>
+<summary><kbd>Improvements and Fixes</kbd></summary>
+
+#### Code refactoring
+
+- **misc**: Refactor the agent runtime implement, closes [#6784](https://github.com/lobehub/lobe-chat/issues/6784) ([14a9874](https://github.com/lobehub/lobe-chat/commit/14a9874))
+
+</details>
+
+<div align="right">
+
+[![](https://img.shields.io/badge/-BACK_TO_TOP-151515?style=flat-square)](#readme-top)
+
+</div>
+
+### [Version 1.69.1](https://github.com/lobehub/lobe-chat/compare/v1.69.0...v1.69.1)
+
+<sup>Released on **2025-03-07**</sup>
+
+#### 💄 Styles
+
+- **misc**: Add Qwen QwQ model.
+
+<br/>
+
+<details>
+<summary><kbd>Improvements and Fixes</kbd></summary>
+
+#### Styles
+
+- **misc**: Add Qwen QwQ model, closes [#6783](https://github.com/lobehub/lobe-chat/issues/6783) ([3d3c2ce](https://github.com/lobehub/lobe-chat/commit/3d3c2ce))
+
+</details>
+
+<div align="right">
+
+[![](https://img.shields.io/badge/-BACK_TO_TOP-151515?style=flat-square)](#readme-top)
+
+</div>
+
+## [Version 1.69.0](https://github.com/lobehub/lobe-chat/compare/v1.68.11...v1.69.0)
+
+<sup>Released on **2025-03-07**</sup>
+
+#### ✨ Features
+
+- **misc**: Support Anthropic Context Caching.
+
+<br/>
+
+<details>
+<summary><kbd>Improvements and Fixes</kbd></summary>
+
+#### What's improved
+
+- **misc**: Support Anthropic Context Caching, closes [#6704](https://github.com/lobehub/lobe-chat/issues/6704) ([471e3ed](https://github.com/lobehub/lobe-chat/commit/471e3ed))
+
+</details>
+
+<div align="right">
+
+[![](https://img.shields.io/badge/-BACK_TO_TOP-151515?style=flat-square)](#readme-top)
+
+</div>
+
+### [Version 1.68.11](https://github.com/lobehub/lobe-chat/compare/v1.68.10...v1.68.11)
+
+<sup>Released on **2025-03-07**</sup>
+
+#### 💄 Styles
+
+- **misc**: Add Gemini 2.0 Flash model variations, add QwQ models.
+
+<br/>
+
+<details>
+<summary><kbd>Improvements and Fixes</kbd></summary>
+
+#### Styles
+
+- **misc**: Add Gemini 2.0 Flash model variations, closes [#6679](https://github.com/lobehub/lobe-chat/issues/6679) ([d5a8fcb](https://github.com/lobehub/lobe-chat/commit/d5a8fcb))
+- **misc**: Add QwQ models, closes [#6770](https://github.com/lobehub/lobe-chat/issues/6770) ([cd30fcc](https://github.com/lobehub/lobe-chat/commit/cd30fcc))
+
+</details>
+
+<div align="right">
+
+[![](https://img.shields.io/badge/-BACK_TO_TOP-151515?style=flat-square)](#readme-top)
+
+</div>
+
 ### [Version 1.68.10](https://github.com/lobehub/lobe-chat/compare/v1.68.9...v1.68.10)
 
 <sup>Released on **2025-03-06**</sup>

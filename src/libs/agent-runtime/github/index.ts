@@ -1,9 +1,9 @@
 import type { ChatModelCard } from '@/types/llm';
 
 import { AgentRuntimeErrorType } from '../error';
-import { pruneReasoningPayload } from '../openai';
 import { ModelProvider } from '../types';
 import { LobeOpenAICompatibleFactory } from '../utils/openaiCompatibleFactory';
+import { pruneReasoningPayload } from '../utils/openaiHelpers';
 
 export interface GithubModelCard {
   description: string;
