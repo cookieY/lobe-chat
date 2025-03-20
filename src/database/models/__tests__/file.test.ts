@@ -2,18 +2,19 @@
 import { eq, inArray } from 'drizzle-orm/expressions';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
-import { getTestDBInstance } from '@/database/server/core/dbForTest';
+import { LobeChatDatabase } from '@/database/type';
 import { FilesTabs, SortType } from '@/types/files';
 
-import { files, globalFiles, knowledgeBaseFiles, knowledgeBases, users } from '../../../schemas';
-import { FileModel } from '../file';
+import { files, globalFiles, knowledgeBaseFiles, knowledgeBases, users } from '../../schemas';
+import { FileModel } from '../../server/models/file';
+import { getTestDB } from './_util';
 
-const serverDB = await getTestDBInstance();
+const serverDB: LobeChatDatabase = await getTestDB();
 
 const userId = 'file-model-test-user-id';
 const fileModel = new FileModel(serverDB, userId);
 
-const knowledgeBase = { id: 'kb1', name: 'knowledgeBase', userId };
+const knowledgeBase = { id: 'kb1', userId, name: 'knowledgeBase' };
 beforeEach(async () => {
   await serverDB.delete(users);
   await serverDB.insert(users).values([{ id: userId }, { id: 'user2' }]);
@@ -30,10 +31,10 @@ describe('FileModel', () => {
   describe('create', () => {
     it('should create a new file', async () => {
       const params = {
-        fileType: 'text/plain',
         name: 'test-file.txt',
-        size: 100,
         url: 'https://example.com/test-file.txt',
+        size: 100,
+        fileType: 'text/plain',
       };
 
       const { id } = await fileModel.create(params);
@@ -45,11 +46,11 @@ describe('FileModel', () => {
 
     it('should create a file with knowledgeBaseId', async () => {
       const params = {
+        name: 'test-file.txt',
+        url: 'https://example.com/test-file.txt',
+        size: 100,
         fileType: 'text/plain',
         knowledgeBaseId: 'kb1',
-        name: 'test-file.txt',
-        size: 100,
-        url: 'https://example.com/test-file.txt',
       };
 
       const { id } = await fileModel.create(params);
@@ -90,11 +91,12 @@ describe('FileModel', () => {
   describe('createGlobalFile', () => {
     it('should create a global file', async () => {
       const globalFile = {
-        fileType: 'text/plain',
         hashId: 'test-hash',
-        metadata: { key: 'value' },
+        fileType: 'text/plain',
         size: 100,
         url: 'https://example.com/global-file.txt',
+        metadata: { key: 'value' },
+        creator: userId,
       };
 
       const result = await fileModel.createGlobalFile(globalFile);
@@ -110,22 +112,23 @@ describe('FileModel', () => {
 
     it('should return file info for existing hash', async () => {
       const globalFile = {
-        fileType: 'text/plain',
         hashId: 'existing-hash',
-        metadata: { key: 'value' },
+        fileType: 'text/plain',
         size: 100,
         url: 'https://example.com/existing-file.txt',
+        metadata: { key: 'value' },
+        creator: userId,
       };
 
       await serverDB.insert(globalFiles).values(globalFile);
 
       const result = await fileModel.checkHash('existing-hash');
       expect(result).toEqual({
-        fileType: 'text/plain',
         isExist: true,
-        metadata: { key: 'value' },
+        fileType: 'text/plain',
         size: 100,
         url: 'https://example.com/existing-file.txt',
+        metadata: { key: 'value' },
       });
     });
   });
@@ -133,18 +136,19 @@ describe('FileModel', () => {
   describe('delete', () => {
     it('should delete a file by id', async () => {
       await fileModel.createGlobalFile({
-        fileType: 'text/plain',
         hashId: '1',
-        size: 100,
         url: 'https://example.com/file1.txt',
+        size: 100,
+        fileType: 'text/plain',
+        creator: userId,
       });
 
       const { id } = await fileModel.create({
-        fileHash: '1',
-        fileType: 'text/plain',
         name: 'test-file.txt',
-        size: 100,
         url: 'https://example.com/test-file.txt',
+        size: 100,
+        fileType: 'text/plain',
+        fileHash: '1',
       });
 
       await fileModel.delete(id);
@@ -159,18 +163,19 @@ describe('FileModel', () => {
     });
     it('should delete a file by id but global file not removed ', async () => {
       await fileModel.createGlobalFile({
-        fileType: 'text/plain',
         hashId: '1',
-        size: 100,
         url: 'https://example.com/file1.txt',
+        size: 100,
+        fileType: 'text/plain',
+        creator: userId,
       });
 
       const { id } = await fileModel.create({
-        fileHash: '1',
-        fileType: 'text/plain',
         name: 'test-file.txt',
-        size: 100,
         url: 'https://example.com/test-file.txt',
+        size: 100,
+        fileType: 'text/plain',
+        fileHash: '1',
       });
 
       await fileModel.delete(id, false);
@@ -188,31 +193,33 @@ describe('FileModel', () => {
   describe('deleteMany', () => {
     it('should delete multiple files', async () => {
       await fileModel.createGlobalFile({
-        fileType: 'text/plain',
         hashId: '1',
-        size: 100,
         url: 'https://example.com/file1.txt',
+        size: 100,
+        fileType: 'text/plain',
+        creator: userId,
       });
       await fileModel.createGlobalFile({
-        fileType: 'text/plain',
         hashId: '2',
-        size: 200,
         url: 'https://example.com/file2.txt',
+        size: 200,
+        fileType: 'text/plain',
+        creator: userId,
       });
 
       const file1 = await fileModel.create({
+        name: 'file1.txt',
+        url: 'https://example.com/file1.txt',
+        size: 100,
         fileHash: '1',
         fileType: 'text/plain',
-        name: 'file1.txt',
-        size: 100,
-        url: 'https://example.com/file1.txt',
       });
       const file2 = await fileModel.create({
-        fileHash: '2',
-        fileType: 'text/plain',
         name: 'file2.txt',
-        size: 200,
         url: 'https://example.com/file2.txt',
+        size: 200,
+        fileType: 'text/plain',
+        fileHash: '2',
       });
       const globalFilesResult = await serverDB.query.globalFiles.findMany({
         where: inArray(globalFiles.hashId, ['1', '2']),
@@ -236,31 +243,33 @@ describe('FileModel', () => {
     });
     it('should delete multiple files but not remove global files if DISABLE_REMOVE_GLOBAL_FILE=true', async () => {
       await fileModel.createGlobalFile({
-        fileType: 'text/plain',
         hashId: '1',
-        size: 100,
         url: 'https://example.com/file1.txt',
+        size: 100,
+        fileType: 'text/plain',
+        creator: userId,
       });
       await fileModel.createGlobalFile({
-        fileType: 'text/plain',
         hashId: '2',
-        size: 200,
         url: 'https://example.com/file2.txt',
+        size: 200,
+        fileType: 'text/plain',
+        creator: userId,
       });
 
       const file1 = await fileModel.create({
-        fileHash: '1',
-        fileType: 'text/plain',
         name: 'file1.txt',
-        size: 100,
         url: 'https://example.com/file1.txt',
+        size: 100,
+        fileType: 'text/plain',
+        fileHash: '1',
       });
       const file2 = await fileModel.create({
-        fileHash: '2',
-        fileType: 'text/plain',
         name: 'file2.txt',
-        size: 200,
         url: 'https://example.com/file2.txt',
+        size: 200,
+        fileType: 'text/plain',
+        fileHash: '2',
       });
 
       const globalFilesResult = await serverDB.query.globalFiles.findMany({
@@ -286,16 +295,16 @@ describe('FileModel', () => {
   describe('clear', () => {
     it('should clear all files for the user', async () => {
       await fileModel.create({
-        fileType: 'text/plain',
         name: 'test-file-1.txt',
-        size: 100,
         url: 'https://example.com/test-file-1.txt',
+        size: 100,
+        fileType: 'text/plain',
       });
       await fileModel.create({
-        fileType: 'text/plain',
         name: 'test-file-2.txt',
-        size: 200,
         url: 'https://example.com/test-file-2.txt',
+        size: 200,
+        fileType: 'text/plain',
       });
 
       await fileModel.clear();
@@ -308,46 +317,46 @@ describe('FileModel', () => {
   describe('Query', () => {
     const sharedFileList = [
       {
-        fileType: 'application/pdf',
         name: 'document.pdf',
-        size: 1000,
         url: 'https://example.com/document.pdf',
+        size: 1000,
+        fileType: 'application/pdf',
         userId,
       },
       {
-        fileType: 'image/jpeg',
         name: 'image.jpg',
-        size: 500,
         url: 'https://example.com/image.jpg',
+        size: 500,
+        fileType: 'image/jpeg',
         userId,
       },
       {
-        fileType: 'audio/mpeg',
         name: 'audio.mp3',
-        size: 2000,
         url: 'https://example.com/audio.mp3',
+        size: 2000,
+        fileType: 'audio/mpeg',
         userId,
       },
     ];
 
     it('should query files for the user', async () => {
       await fileModel.create({
-        fileType: 'text/plain',
         name: 'test-file-1.txt',
-        size: 100,
         url: 'https://example.com/test-file-1.txt',
+        size: 100,
+        fileType: 'text/plain',
       });
       await fileModel.create({
-        fileType: 'text/plain',
         name: 'test-file-2.txt',
-        size: 200,
         url: 'https://example.com/test-file-2.txt',
+        size: 200,
+        fileType: 'text/plain',
       });
       await serverDB.insert(files).values({
-        fileType: 'audio/mpeg',
         name: 'audio.mp3',
-        size: 2000,
         url: 'https://example.com/audio.mp3',
+        size: 2000,
+        fileType: 'audio/mpeg',
         userId: 'user2',
       });
 
@@ -392,10 +401,10 @@ describe('FileModel', () => {
       await serverDB.insert(files).values([
         ...sharedFileList,
         {
-          fileType: 'application/pdf',
           name: 'big_document.pdf',
-          size: 5000,
           url: 'https://example.com/big_document.pdf',
+          size: 5000,
+          fileType: 'application/pdf',
           userId,
         },
       ]);
@@ -432,25 +441,25 @@ describe('FileModel', () => {
       beforeEach(async () => {
         await serverDB.insert(files).values([
           {
-            fileType: 'text/plain',
             id: 'file1',
             name: 'file1.txt',
+            userId,
+            fileType: 'text/plain',
             size: 100,
             url: 'url1',
-            userId,
           },
           {
-            fileType: 'text/plain',
             id: 'file2',
             name: 'file2.txt',
+            userId,
+            fileType: 'text/plain',
             size: 200,
             url: 'url2',
-            userId,
           },
         ]);
         await serverDB
           .insert(knowledgeBaseFiles)
-          .values([{ fileId: 'file1', knowledgeBaseId: 'kb1' }]);
+          .values([{ fileId: 'file1', knowledgeBaseId: 'kb1', userId }]);
       });
 
       it('should query files in a specific knowledge base', async () => {
@@ -475,19 +484,19 @@ describe('FileModel', () => {
   describe('findById', () => {
     it('should find a file by id', async () => {
       const { id } = await fileModel.create({
-        fileType: 'text/plain',
         name: 'test-file.txt',
-        size: 100,
         url: 'https://example.com/test-file.txt',
+        size: 100,
+        fileType: 'text/plain',
       });
 
       const file = await fileModel.findById(id);
       expect(file).toMatchObject({
-        fileType: 'text/plain',
         id,
         name: 'test-file.txt',
-        size: 100,
         url: 'https://example.com/test-file.txt',
+        size: 100,
+        fileType: 'text/plain',
         userId,
       });
     });
@@ -495,21 +504,21 @@ describe('FileModel', () => {
 
   it('should update a file', async () => {
     const { id } = await fileModel.create({
-      fileType: 'text/plain',
       name: 'test-file.txt',
-      size: 100,
       url: 'https://example.com/test-file.txt',
+      size: 100,
+      fileType: 'text/plain',
     });
 
     await fileModel.update(id, { name: 'updated-test-file.txt', size: 200 });
 
     const updatedFile = await serverDB.query.files.findFirst({ where: eq(files.id, id) });
     expect(updatedFile).toMatchObject({
-      fileType: 'text/plain',
       id,
       name: 'updated-test-file.txt',
-      size: 200,
       url: 'https://example.com/test-file.txt',
+      size: 200,
+      fileType: 'text/plain',
       userId,
     });
   });
@@ -517,46 +526,48 @@ describe('FileModel', () => {
   it('should countFilesByHash', async () => {
     const fileList = [
       {
-        fileHash: 'hash1',
-        fileType: 'application/pdf',
         id: '1',
         name: 'document.pdf',
-        size: 1000,
         url: 'https://example.com/document.pdf',
+        fileHash: 'hash1',
+        size: 1000,
+        fileType: 'application/pdf',
         userId,
       },
       {
-        fileHash: 'hash2',
-        fileType: 'image/jpeg',
         id: '2',
         name: 'image.jpg',
-        size: 500,
         url: 'https://example.com/image.jpg',
+        fileHash: 'hash2',
+        size: 500,
+        fileType: 'image/jpeg',
         userId,
       },
       {
-        fileHash: 'hash1',
-        fileType: 'application/pdf',
         id: '5',
         name: 'document.pdf',
-        size: 1000,
         url: 'https://example.com/document.pdf',
+        fileHash: 'hash1',
+        size: 1000,
+        fileType: 'application/pdf',
         userId: 'user2',
       },
     ];
 
     await serverDB.insert(globalFiles).values([
       {
-        fileType: 'application/pdf',
         hashId: 'hash1',
-        size: 1000,
         url: 'https://example.com/document.pdf',
+        size: 1000,
+        fileType: 'application/pdf',
+        creator: userId,
       },
       {
-        fileType: 'image/jpeg',
         hashId: 'hash2',
-        size: 500,
         url: 'https://example.com/image.jpg',
+        size: 500,
+        fileType: 'image/jpeg',
+        creator: userId,
       },
     ]);
 
@@ -569,24 +580,24 @@ describe('FileModel', () => {
   describe('countUsage', () => {
     const sharedFileList = [
       {
-        fileType: 'application/pdf',
         name: 'document.pdf',
-        size: 1000,
         url: 'https://example.com/document.pdf',
+        size: 1000,
+        fileType: 'application/pdf',
         userId,
       },
       {
-        fileType: 'image/jpeg',
         name: 'image.jpg',
-        size: 500,
         url: 'https://example.com/image.jpg',
+        size: 500,
+        fileType: 'image/jpeg',
         userId,
       },
       {
-        fileType: 'audio/mpeg',
         name: 'audio.mp3',
-        size: 2000,
         url: 'https://example.com/audio.mp3',
+        size: 2000,
+        fileType: 'audio/mpeg',
         userId,
       },
     ];
@@ -604,24 +615,24 @@ describe('FileModel', () => {
       // 准备测试数据
       const fileList = [
         {
-          fileType: 'text/plain',
           name: 'test1.txt',
-          size: 100,
           url: 'https://example.com/test1.txt',
+          size: 100,
+          fileType: 'text/plain',
           userId,
         },
         {
-          fileType: 'text/plain',
           name: 'test2.txt',
-          size: 200,
           url: 'https://example.com/test2.txt',
+          size: 200,
+          fileType: 'text/plain',
           userId,
         },
         {
-          fileType: 'text/plain',
           name: 'other.txt',
-          size: 300,
           url: 'https://example.com/other.txt',
+          size: 300,
+          fileType: 'text/plain',
           userId,
         },
       ];
@@ -644,17 +655,17 @@ describe('FileModel', () => {
       // 准备测试数据
       await serverDB.insert(files).values([
         {
-          fileType: 'text/plain',
           name: 'test1.txt',
-          size: 100,
           url: 'https://example.com/test1.txt',
+          size: 100,
+          fileType: 'text/plain',
           userId,
         },
         {
-          fileType: 'text/plain',
           name: 'test2.txt',
-          size: 200,
           url: 'https://example.com/test2.txt',
+          size: 200,
+          fileType: 'text/plain',
           userId: 'user2', // 不同用户的文件
         },
       ]);
@@ -669,11 +680,12 @@ describe('FileModel', () => {
     it('should delete global file by hashId', async () => {
       // 准备测试数据
       const globalFile = {
-        fileType: 'text/plain',
         hashId: 'test-hash',
-        metadata: { key: 'value' },
+        fileType: 'text/plain',
         size: 100,
         url: 'https://example.com/global-file.txt',
+        metadata: { key: 'value' },
+        creator: userId,
       };
 
       await serverDB.insert(globalFiles).values(globalFile);
@@ -696,16 +708,18 @@ describe('FileModel', () => {
     it('should only delete specified global file', async () => {
       // 准备测试数据
       const globalFiles1 = {
-        fileType: 'text/plain',
         hashId: 'hash1',
+        fileType: 'text/plain',
         size: 100,
         url: 'https://example.com/file1.txt',
+        creator: userId,
       };
       const globalFiles2 = {
-        fileType: 'text/plain',
         hashId: 'hash2',
+        fileType: 'text/plain',
         size: 200,
         url: 'https://example.com/file2.txt',
+        creator: userId,
       };
 
       await serverDB.insert(globalFiles).values([globalFiles1, globalFiles2]);
