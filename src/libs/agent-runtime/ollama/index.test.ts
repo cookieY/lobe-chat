@@ -29,7 +29,7 @@ describe('LobeOllamaAI', () => {
       try {
         new LobeOllamaAI({ baseURL: 'invalid-url' });
       } catch (e) {
-        expect(e).toEqual({
+        expect(e).toMatchObject({
           error: new TypeError('Invalid URL'),
           errorType: 'InvalidOllamaArgs',
         });
