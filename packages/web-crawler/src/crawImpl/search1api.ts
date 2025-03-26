@@ -13,8 +13,7 @@ interface Search1ApiResponse {
   };
 }
 
-// eslint-disable-next-line unused-imports/no-unused-vars, @typescript-eslint/no-unused-vars
-export const search1api: CrawlImpl = async (url, { filterOptions }) => {
+export const search1api: CrawlImpl = async (url) => {
   // Get API key from environment variable
   const apiKey = process.env.SEARCH1API_API_KEY;
 

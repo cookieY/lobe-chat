@@ -1,6 +1,44 @@
 [
   {
     "children": {
+      "improvements": ["Update siliconcloud models."]
+    },
+    "date": "2025-03-26",
+    "version": "1.75.1"
+  },
+  {
+    "children": {
+      "features": [
+        "Add reasoning content selector and update AutoScroll component, add Xinference provider support."
+      ],
+      "improvements": ["Add Gemini 2.5 Pro Experimental model, improve editing scroll experience."]
+    },
+    "date": "2025-03-26",
+    "version": "1.75.0"
+  },
+  {
+    "children": {
+      "improvements": ["Upgrade styles for Drawer."]
+    },
+    "date": "2025-03-25",
+    "version": "1.74.11"
+  },
+  {
+    "children": {
+      "improvements": ["Add hunyuan-t1-latest from Hunyuan."]
+    },
+    "date": "2025-03-25",
+    "version": "1.74.10"
+  },
+  {
+    "children": {
+      "improvements": ["Add reject pattern for browserless to boost crawl performance."]
+    },
+    "date": "2025-03-25",
+    "version": "1.74.9"
+  },
+  {
+    "children": {
       "fixes": ["Update create message loading issue."]
     },
     "date": "2025-03-24",
