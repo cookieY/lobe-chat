@@ -2,10 +2,10 @@ import { TRPCError } from '@trpc/server';
 import { z } from 'zod';
 
 import { serverDBEnv } from '@/config/db';
+import { AsyncTaskModel } from '@/database/models/asyncTask';
+import { ChunkModel } from '@/database/models/chunk';
+import { FileModel } from '@/database/models/file';
 import { serverDB } from '@/database/server';
-import { AsyncTaskModel } from '@/database/server/models/asyncTask';
-import { ChunkModel } from '@/database/server/models/chunk';
-import { FileModel } from '@/database/server/models/file';
 import { authedProcedure, router } from '@/libs/trpc';
 import { S3 } from '@/server/modules/S3';
 import { getFullFileUrl } from '@/server/utils/files';
@@ -74,7 +74,7 @@ export const fileRouter = router({
     .query(async ({ ctx, input }): Promise<FileListItem | undefined> => {
       const item = await ctx.fileModel.findById(input.id);
 
-      if (!item) throw new TRPCError({ code: 'BAD_REQUEST', message: 'File not found' });
+      if (!item) throw new TRPCError({ code: 'NOT_FOUND', message: 'File not found' });
 
       let embeddingTask = null;
       if (item.embeddingTaskId) {

@@ -5,10 +5,9 @@ import JSONL from 'jsonl-parse-stringify';
 import pMap from 'p-map';
 import { z } from 'zod';
 
-import { DEFAULT_MODEL } from '@/const/settings';
-import { DEFAULT_FILE_EMBEDDING_MODEL_ITEM } from '@/const/settings/knowledge';
+import { DEFAULT_EMBEDDING_MODEL, DEFAULT_MODEL } from '@/const/settings';
+import { FileModel } from '@/database/models/file';
 import { serverDB } from '@/database/server';
-import { FileModel } from '@/database/server/models/file';
 import {
   EvalDatasetModel,
   EvalDatasetRecordModel,
@@ -188,6 +187,7 @@ export const ragEvalRouter = router({
       if (datasetRecords.length === 0) {
         throw new TRPCError({ code: 'BAD_REQUEST', message: 'Dataset record is empty' });
       }
+
       const evalRecords = await ctx.evaluationRecordModel.batchCreate(
         datasetRecords.map((record) => ({
           evaluationId: input.id,
@@ -195,7 +195,7 @@ export const ragEvalRouter = router({
           question: record.question!,
           ideal: record.ideal,
           status: EvalEvaluationStatus.Pending,
-          embeddingModel: DEFAULT_FILE_EMBEDDING_MODEL_ITEM.model,
+          embeddingModel: DEFAULT_EMBEDDING_MODEL,
           languageModel: DEFAULT_MODEL,
         })),
       );
