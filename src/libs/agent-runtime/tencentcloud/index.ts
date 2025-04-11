@@ -15,8 +15,6 @@ export const LobeTencentCloudAI = LobeOpenAICompatibleFactory({
   models: async ({ client }) => {
     const { LOBE_DEFAULT_MODEL_LIST } = await import('@/config/aiModels');
 
-    const functionCallKeywords = ['deepseek-v3'];
-
     const reasoningKeywords = ['deepseek-r1'];
 
     const modelsPage = (await client.models.list()) as any;
@@ -32,10 +30,7 @@ export const LobeTencentCloudAI = LobeOpenAICompatibleFactory({
           contextWindowTokens: knownModel?.contextWindowTokens ?? undefined,
           displayName: knownModel?.displayName ?? undefined,
           enabled: knownModel?.enabled || false,
-          functionCall:
-            functionCallKeywords.some((keyword) => model.id.toLowerCase().includes(keyword)) ||
-            knownModel?.abilities?.functionCall ||
-            false,
+          functionCall: knownModel?.abilities?.functionCall || false,
           id: model.id,
           reasoning:
             reasoningKeywords.some((keyword) => model.id.toLowerCase().includes(keyword)) ||
