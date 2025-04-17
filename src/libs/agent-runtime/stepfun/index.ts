@@ -41,7 +41,9 @@ export const LobeStepfunAI = LobeOpenAICompatibleFactory({
     // ref: https://platform.stepfun.com/docs/llm/modeloverview
     const functionCallKeywords = ['step-1-', 'step-1o-', 'step-1v-', 'step-2-'];
 
-    const visionKeywords = ['step-1o-', 'step-1v-'];
+    const visionKeywords = ['step-1o-', 'step-r1-v-', 'step-1v-'];
+
+    const reasoningKeywords = ['step-r1-'];
 
     const modelsPage = (await client.models.list()) as any;
     const modelList: StepfunModelCard[] = modelsPage.data;
@@ -61,7 +63,10 @@ export const LobeStepfunAI = LobeOpenAICompatibleFactory({
             knownModel?.abilities?.functionCall ||
             false,
           id: model.id,
-          reasoning: knownModel?.abilities?.reasoning || false,
+          reasoning:
+            reasoningKeywords.some((keyword) => model.id.toLowerCase().includes(keyword)) ||
+            knownModel?.abilities?.reasoning ||
+            false,
           vision:
             visionKeywords.some((keyword) => model.id.toLowerCase().includes(keyword)) ||
             knownModel?.abilities?.vision ||
