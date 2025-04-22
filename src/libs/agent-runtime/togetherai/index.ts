@@ -30,7 +30,7 @@ export const LobeTogetherAI = LobeOpenAICompatibleFactory({
     return modelList
       .map((model) => {
         const knownModel = LOBE_DEFAULT_MODEL_LIST.find(
-          (m) => model.name.toLowerCase() === m.id.toLowerCase(),
+          (m) => model.id.toLowerCase() === m.id.toLowerCase(),
         );
 
         return {
@@ -42,16 +42,16 @@ export const LobeTogetherAI = LobeOpenAICompatibleFactory({
             model.description?.toLowerCase().includes('function calling') ||
             knownModel?.abilities?.functionCall ||
             false,
-          id: model.name,
+          id: model.id,
           maxOutput: model.context_length,
           reasoning:
-            reasoningKeywords.some((keyword) => model.name.toLowerCase().includes(keyword)) ||
+            reasoningKeywords.some((keyword) => model.id.toLowerCase().includes(keyword)) ||
             knownModel?.abilities?.functionCall ||
             false,
           tokens: model.context_length,
           vision:
             model.description?.toLowerCase().includes('vision') ||
-            visionKeywords.some((keyword) => model.name?.toLowerCase().includes(keyword)) ||
+            visionKeywords.some((keyword) => model.id?.toLowerCase().includes(keyword)) ||
             knownModel?.abilities?.functionCall ||
             false,
         };

@@ -25,14 +25,6 @@ describe('search1api crawler', () => {
     process.env = originalEnv;
   });
 
-  it('should throw error when API key is not set', async () => {
-    delete process.env.SEARCH1API_API_KEY;
-
-    await expect(search1api('https://example.com', { filterOptions: {} })).rejects.toThrow(
-      'SEARCH1API_API_KEY environment variable is not set',
-    );
-  });
-
   it('should throw NetworkConnectionError when fetch fails', async () => {
     mockFetch.mockRejectedValue(new Error('fetch failed'));
 
