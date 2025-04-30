@@ -68,7 +68,7 @@ export const SSOProvidersList = memo(() => {
             <Flexbox gap={4} horizontal>
               <CopyButton content={item.providerAccountId} size={'small'} />
               <ActionIcon
-                disable={!allowUnlink}
+                disabled={!allowUnlink}
                 icon={Unlink}
                 onClick={() => handleUnlinkSSO(item.provider, item.providerAccountId)}
                 size={'small'}
@@ -78,7 +78,7 @@ export const SSOProvidersList = memo(() => {
           avatar={AuthIcons(item.provider)}
           date={item.expires_at}
           description={item.providerAccountId}
-          key={index}
+          key={[item.provider, item.providerAccountId].join('-')}
           onMouseEnter={() => setHoveredIndex(index)}
           onMouseLeave={() => setHoveredIndex(null)}
           showAction={hoveredIndex === index}
