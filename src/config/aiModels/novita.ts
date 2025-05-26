@@ -1,13 +1,24 @@
 import { AIChatModelCard } from '@/types/aiModel';
+
 // https://novita.ai/pricing
 const novitaChatModels: AIChatModelCard[] = [
+  {
+    contextWindowTokens: 200_000,
+    displayName: 'Claude Opus 4',
+    id: 'pa/cd-op-4-20250514',
+    pricing: {
+      input: 15,
+      output: 75,
+    },
+    type: 'chat',
+  },
   {
     contextWindowTokens: 32_000,
     displayName: 'Qwen3 0.6B FP8',
     id: 'qwen/qwen3-0.6b-fp8',
     pricing: {
       input: 0,
-      output: 0
+      output: 0,
     },
     type: 'chat',
   },
@@ -17,7 +28,7 @@ const novitaChatModels: AIChatModelCard[] = [
     id: 'qwen/qwen3-1.7b-fp8',
     pricing: {
       input: 0,
-      output: 0
+      output: 0,
     },
     type: 'chat',
   },
@@ -27,7 +38,7 @@ const novitaChatModels: AIChatModelCard[] = [
     id: 'qwen/qwen3-4b-fp8',
     pricing: {
       input: 0,
-      output: 0
+      output: 0,
     },
     type: 'chat',
   },
@@ -37,7 +48,7 @@ const novitaChatModels: AIChatModelCard[] = [
     id: 'deepseek/deepseek-prover-v2-671b',
     pricing: {
       input: 0.7,
-      output: 2.5
+      output: 2.5,
     },
     type: 'chat',
   },
@@ -47,7 +58,7 @@ const novitaChatModels: AIChatModelCard[] = [
     id: 'qwen/qwen3-235b-a22b-fp8',
     pricing: {
       input: 0.2,
-      output: 0.8
+      output: 0.8,
     },
     type: 'chat',
   },
@@ -57,7 +68,7 @@ const novitaChatModels: AIChatModelCard[] = [
     id: 'qwen/qwen3-30b-a3b-fp8',
     pricing: {
       input: 0.1,
-      output: 0.45
+      output: 0.45,
     },
     type: 'chat',
   },
@@ -67,7 +78,7 @@ const novitaChatModels: AIChatModelCard[] = [
     id: 'qwen/qwen3-32b-fp8',
     pricing: {
       input: 0.1,
-      output: 0.45
+      output: 0.45,
     },
     type: 'chat',
   },
@@ -77,7 +88,7 @@ const novitaChatModels: AIChatModelCard[] = [
     id: 'meta-llama/llama-3.3-70b-instruct',
     pricing: {
       input: 0.13,
-      output: 0.39
+      output: 0.39,
     },
     type: 'chat',
   },
@@ -87,7 +98,7 @@ const novitaChatModels: AIChatModelCard[] = [
     id: 'qwen/qwen3-8b-fp8',
     pricing: {
       input: 0.035,
-      output: 0.138
+      output: 0.138,
     },
     type: 'chat',
   },
@@ -97,7 +108,7 @@ const novitaChatModels: AIChatModelCard[] = [
     id: 'qwen/qwen3-14b-fp8',
     pricing: {
       input: 0.07,
-      output: 0.275
+      output: 0.275,
     },
     type: 'chat',
   },
@@ -191,12 +202,12 @@ const novitaChatModels: AIChatModelCard[] = [
     type: 'chat',
   },
   {
-    contextWindowTokens: 131_072,
+    contextWindowTokens: 64_000,
     description: 'Mistral Nemo 是多语言支持和高性能编程的7.3B参数模型。',
     displayName: 'Mistral Nemo',
     id: 'mistralai/mistral-nemo',
     pricing: {
-      input: 0.17,
+      input: 0.04,
       output: 0.17,
     },
     type: 'chat',
@@ -403,16 +414,6 @@ const novitaChatModels: AIChatModelCard[] = [
     pricing: {
       input: 1.48,
       output: 1.48,
-    },
-    type: 'chat',
-  },
-  {
-    contextWindowTokens: 4096,
-    displayName: 'Airoboros L2 70B',
-    id: 'jondurbin/airoboros-l2-70b',
-    pricing: {
-      input: 0.5,
-      output: 0.5,
     },
     type: 'chat',
   },
