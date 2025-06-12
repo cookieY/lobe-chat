@@ -1,8 +1,8 @@
 import { ChatStreamPayload, ModelProvider } from '../types';
-import { LobeOpenAICompatibleFactory } from '../utils/openaiCompatibleFactory';
+import { createOpenAICompatibleRuntime } from '../utils/openaiCompatibleFactory';
 import { SparkAIStream, transformSparkResponseToStream } from '../utils/streams';
 
-export const LobeSparkAI = LobeOpenAICompatibleFactory({
+export const LobeSparkAI = createOpenAICompatibleRuntime({
   baseURL: 'https://spark-api-open.xf-yun.com/v1',
   chatCompletion: {
     handlePayload: (payload: ChatStreamPayload) => {

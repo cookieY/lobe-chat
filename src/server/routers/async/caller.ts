@@ -5,9 +5,9 @@ import { Agent } from 'node:https';
 import superjson from 'superjson';
 import urlJoin from 'url-join';
 
-import { appEnv } from '@/config/app';
 import { serverDBEnv } from '@/config/db';
 import { JWTPayload, LOBE_CHAT_AUTH_HEADER } from '@/const/auth';
+import { appEnv } from '@/envs/app';
 import { KeyVaultsGateKeeper } from '@/server/modules/KeyVaultsEncrypt';
 
 import type { AsyncRouter } from './index';
